@@ -1,0 +1,6 @@
+<?nsuri picto?>
+<picto format="egx" transformation="platform:/resource/Ejemplo_Mast/caseva_example.egx">
+	
+	<!-- HTML view for chart.js -->
+	<view path="chart" format="html" source="charts/prueba.html" position="0"/>
+</picto>

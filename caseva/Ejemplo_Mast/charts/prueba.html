@@ -1,12 +1,64 @@
 <!doctype html>
 <html lang=en>
-	<head>
-		<title>Chart.js example</title>
-	</head>
-	<body>
-		<h1>Chart.js example</h1>
-		<div style="width: 800px;"><canvas id="barChart"></canvas></div>
-		
-		<script type="module" src="barChart.js"></script>
-	</body>
+<head>
+	<meta charset="utf-8"/>
+    <style>
+        #barChart {
+            margin: 0 auto;
+        }
+	</style>
+</head>
+<body>
+	<div>
+		<canvas id="myChart"></canvas>
+	</div>
+	<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+	<script>
+		const ctx = document.getElementById('myChart');
+		new Chart(ctx, {
+		type: 'bar',
+		data : {
+			labels: [ 'o1','o2','o3','o4','o5'],
+			datasets: [
+				{
+					label: 'b',
+					data: [135,135,135,79,0],
+					backgroundColor: '#f71212',
+				},
+				{
+					label: 'w',
+					data: [221.48,264.84,4602.6,656.64,35616.4],
+					backgroundColor: '#1512f7',
+				},
+				{
+					label: 'c',
+					data: [1420,13240,13564,137614,100000],
+					backgroundColor: '#12f715',
+				}
+			]
+		},
+  		options: {
+  			indexAxis: 'y',
+    		plugins: {
+      			title: {
+        			display: true,
+        			text: 'Slack'
+      			},
+      			colors: {
+      				enabled: false
+    			},
+    		},
+    		responsive: true,
+    		scales: {
+      			x: {
+        			stacked: true,
+      			},
+      			y: {
+        			stacked: true
+      			}
+    		}
+  		}
+  	});
+	</script>
+</body>
 </html>

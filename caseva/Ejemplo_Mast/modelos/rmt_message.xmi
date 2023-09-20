@@ -1,0 +1,402 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<mast2:Mast_Model
+    xmi:version="2.0"
+    xmlns:xmi="http://www.omg.org/XMI"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:mast2="http://mast.unican.es/ecoremast/Mast2"
+    xsi:schemaLocation="http://mast.unican.es/ecoremast/Mast2 /mastresults/Mast2.ecore"
+    name="rmt"
+    Date="2000-01-01T00:00:00"
+    System_PiP_Behavior="STRICT">
+  <Element_List
+      xsi:type="mast2:Regular_Processor"
+      name="teleoperation_station"
+      Scheduler="sch_teleoperation_station"
+      Worst_ISR_Switch="0.00"
+      Avg_ISR_Switch="0.00"
+      Best_ISR_Switch="0.00"
+      Speed_Factor="1.00"
+      Max_Interrupt_Priority="512"
+      Min_Interrupt_Priority="501"
+      Timer_List="teleoperation_station_timer"/>
+  <Element_List
+      xsi:type="mast2:Alarm_Clock"
+      name="teleoperation_station_timer"
+      Max_Overhead="50.00"
+      Avg_Overhead="0.00"
+      Min_Overhead="0.00"/>
+  <Element_List
+      xsi:type="mast2:Regular_Processor"
+      name="local_controller"
+      Scheduler="sch_local_controller"
+      Worst_ISR_Switch="0.00"
+      Avg_ISR_Switch="0.00"
+      Best_ISR_Switch="0.00"
+      Speed_Factor="1.00"
+      Max_Interrupt_Priority="512"
+      Min_Interrupt_Priority="501"
+      Timer_List="local_controller_timer"/>
+  <Element_List
+      xsi:type="mast2:Alarm_Clock"
+      name="local_controller_timer"
+      Max_Overhead="10.00"
+      Avg_Overhead="0.00"
+      Min_Overhead="0.00"/>
+  <Element_List
+      xsi:type="mast2:Packet_Based_Network"
+      name="ethernet"
+      Speed_Factor="1.00" 
+      Scheduler="sch_ethernet"
+      Throughput="10"
+      Transmission_Kind="HALF_DUPLEX"
+      Max_Blocking="0.00"
+      Max_Packet_Size="2147483647"
+      Min_Packet_Size="2147483647">
+  </Element_List>
+
+  <Element_List
+      xsi:type="mast2:Primary_Scheduler"
+      name="sch_teleoperation_station"
+      Host="teleoperation_station">
+    <Policy
+        xsi:type="mast2:Fixed_Priority_Policy"
+        Max_Priority="500"
+        Min_Priority="1"
+        Worst_Context_Switch="102.50"
+        Avg_Context_Switch="0.00"
+        Best_Context_Switch="0.00"/>
+  </Element_List>
+
+  <Element_List
+      xsi:type="mast2:Primary_Scheduler"
+      name="sch_local_controller"
+      Host="local_controller">
+    <Policy
+        xsi:type="mast2:Fixed_Priority_Policy"
+        Max_Priority="500"
+        Min_Priority="1"
+        Worst_Context_Switch="15.00"
+        Avg_Context_Switch="0.00"
+        Best_Context_Switch="0.00"/>
+  </Element_List>
+
+  <Element_List
+      xsi:type="mast2:Primary_Scheduler"
+      name="sch_ethernet"
+      Host="ethernet">
+    <Policy
+        xsi:type="mast2:FP_Packet_Based_Policy"
+        Packet_Overhead_Max_Size="0"
+        Packet_Overhead_Avg_Size="0"
+        Packet_Overhead_Min_Size="0"
+        Max_Priority="32767"
+        Min_Priority="1"/>
+  </Element_List>
+
+  <Element_List
+      xsi:type="mast2:Immediate_Ceiling_Mutex"
+      name="status" 
+      Ceiling="334"
+      Preassigned="NO"/>
+
+  <Element_List
+      xsi:type="mast2:Immediate_Ceiling_Mutex"
+      name="commands" 
+      Ceiling="167"
+      Preassigned="NO"/>
+
+  <Element_List
+      xsi:type="mast2:Immediate_Ceiling_Mutex"
+      name="servo_data" 
+      Ceiling="334"
+      Preassigned="NO"/>
+
+
+  <Element_List
+      xsi:type="mast2:Simple_Operation"
+      name="read_status"
+      Worst_Case_Execution_Time="87.00"
+      Avg_Case_Execution_Time="1.000E+100" 
+      Best_Case_Execution_Time="0.00"
+      Mutex_To_Lock_List="status"
+      Mutex_To_Unlock_List="status"/>
+
+  <Element_List
+      xsi:type="mast2:Simple_Operation"
+      name="write_status"
+      Worst_Case_Execution_Time="54.00"
+      Avg_Case_Execution_Time="1.000E+100" 
+      Best_Case_Execution_Time="0.00"
+      Mutex_To_Lock_List="status"
+      Mutex_To_Unlock_List="status"/>
+
+  <Element_List
+      xsi:type="mast2:Simple_Operation"
+      name="set_command"
+      Worst_Case_Execution_Time="135.00"
+      Avg_Case_Execution_Time="1.000E+100" 
+      Best_Case_Execution_Time="0.00"
+      Mutex_To_Lock_List="commands"
+      Mutex_To_Unlock_List="commands"/>
+
+  <Element_List
+      xsi:type="mast2:Simple_Operation"
+      name="get_command"
+      Worst_Case_Execution_Time="99.00"
+      Avg_Case_Execution_Time="1.000E+100" 
+      Best_Case_Execution_Time="0.00"
+      Mutex_To_Lock_List="commands"
+      Mutex_To_Unlock_List="commands"/>
+
+  <Element_List
+      xsi:type="mast2:Simple_Operation"
+      name="read_servos"
+      Worst_Case_Execution_Time="74.00"
+      Avg_Case_Execution_Time="1.000E+100" 
+      Best_Case_Execution_Time="0.00"
+      Mutex_To_Lock_List="servo_data"
+      Mutex_To_Unlock_List="servo_data"/>
+
+  <Element_List
+      xsi:type="mast2:Simple_Operation"
+      name="write_servos"
+      Worst_Case_Execution_Time="71.00"
+      Avg_Case_Execution_Time="1.000E+100" 
+      Best_Case_Execution_Time="0.00"
+      Mutex_To_Lock_List="servo_data"
+      Mutex_To_Unlock_List="servo_data"/>
+
+  <Element_List
+      xsi:type="mast2:Enclosing_Operation"
+      name="command_manager"
+      Operation_List="write_servos"/>
+
+  <Element_List
+      xsi:type="mast2:Enclosing_Operation"
+      name="data_sender"
+      Operation_List="read_servos"/>
+
+  <Element_List
+      xsi:type="mast2:Enclosing_Operation"
+      name="servo_control"
+      Operation_List="read_servos write_servos"/>
+
+  <Element_List
+      xsi:type="mast2:Enclosing_Operation"
+      name="trajectory_planner"
+      Operation_List="get_command"/>
+
+  <Element_List
+      xsi:type="mast2:Enclosing_Operation"
+      name="reporter"
+      Operation_List="write_status"/>
+
+  <Element_List
+      xsi:type="mast2:Enclosing_Operation"
+      name="gui"
+      Operation_List="read_status set_command"/>
+
+  <Element_List
+      xsi:type="mast2:Message"
+      name="command_message"
+      Max_Message_Size="48500"
+      Avg_Message_Size="2147483647" 
+      Min_Message_Size="0"/>
+
+  <Element_List
+      xsi:type="mast2:Message"
+      name="status_message"
+      Max_Message_Size="50800"
+      Avg_Message_Size="2147483647" 
+      Min_Message_Size="0"/>
+
+
+  <Element_List
+      xsi:type="mast2:Thread"
+      name="th_servo_control"
+      Scheduler="sch_local_controller">
+    <Scheduling_Parameters
+        xsi:type="mast2:Fixed_Priority_Params"
+        Priority="167"
+        Preassigned="NO"/>
+  </Element_List>
+  <Element_List
+      xsi:type="mast2:Thread"
+      name="th_command_manager"
+      Scheduler="sch_local_controller">
+    <Scheduling_Parameters
+        xsi:type="mast2:Fixed_Priority_Params"
+        Priority="1"
+        Preassigned="NO"/>
+  </Element_List>
+  <Element_List
+      xsi:type="mast2:Thread"
+      name="th_data_sender"
+      Scheduler="sch_local_controller">
+    <Scheduling_Parameters
+        xsi:type="mast2:Fixed_Priority_Params"
+        Priority="334"
+        Preassigned="NO"/>
+  </Element_List>
+  <Element_List
+      xsi:type="mast2:Thread"
+      name="th_trajectory_planner"
+      Scheduler="sch_teleoperation_station">
+    <Scheduling_Parameters
+        xsi:type="mast2:Fixed_Priority_Params"
+        Priority="167"
+        Preassigned="NO"/>
+  </Element_List>
+  <Element_List
+      xsi:type="mast2:Thread"
+      name="th_reporter"
+      Scheduler="sch_teleoperation_station">
+    <Scheduling_Parameters
+        xsi:type="mast2:Fixed_Priority_Params"
+        Priority="334"
+        Preassigned="NO"/>
+  </Element_List>
+  <Element_List
+      xsi:type="mast2:Thread"
+      name="th_gui"
+      Scheduler="sch_teleoperation_station">
+    <Scheduling_Parameters
+        xsi:type="mast2:Fixed_Priority_Params"
+        Priority="1"
+        Preassigned="NO"/>
+  </Element_List>
+  <Element_List
+      xsi:type="mast2:Communication_Channel"
+      name="message_scheduler"
+      Scheduler="sch_ethernet">
+    <Scheduling_Parameters
+        xsi:type="mast2:Fixed_Priority_Params"
+        Priority="1"
+        Preassigned="NO"/>
+  </Element_List>
+
+  <Element_List
+      xsi:type="mast2:Regular_End_To_End_Flow"
+      name="e2e_servo_control">
+    <Flow_Element_List
+        xsi:type="mast2:Periodic_Event"
+        name="e1"
+        Period="5000.00"
+        Max_Jitter="0.000"
+        Phase="0.000"/>
+    <Flow_Element_List
+        xsi:type="mast2:Internal_Event"
+        name="o1">
+      <Observer_List
+          xsi:type="mast2:Hard_Global_Deadline"
+          Deadline="5000.00"
+          Referenced_Event="//@Element_List.32/@Flow_Element_List.0"
+      />
+    </Flow_Element_List>
+    <Flow_Element_List
+        xsi:type="mast2:Step"
+        Input_Event="//@Element_List.32/@Flow_Element_List.0" 
+        Output_Event="//@Element_List.32/@Flow_Element_List.1"
+        Step_Operation= "servo_control"
+        Step_Schedulable_Resource= "th_servo_control"/>
+  </Element_List> 
+
+  <Element_List
+      xsi:type="mast2:Regular_End_To_End_Flow"
+      name="main_control_loop">
+    <Flow_Element_List
+        xsi:type="mast2:Periodic_Event"
+        name="e2"
+        Period="50000.00"
+        Max_Jitter="0.000"
+        Phase="0.000"/>
+    <Flow_Element_List
+        xsi:type="mast2:Internal_Event"
+        name="o2"/>
+    <Flow_Element_List
+        xsi:type="mast2:Internal_Event"
+        name="o3"/>
+    <Flow_Element_List
+        xsi:type="mast2:Internal_Event"
+        name="o4"/>
+    <Flow_Element_List
+        xsi:type="mast2:Internal_Event"
+        name="o5"/>
+    <Flow_Element_List
+        xsi:type="mast2:Internal_Event"
+        name="o6"/>
+    <Flow_Element_List
+        xsi:type="mast2:Internal_Event"
+        name="o7">
+      <Observer_List
+          xsi:type="mast2:Hard_Global_Deadline"
+          Deadline="50000.00"
+          Referenced_Event="//@Element_List.33/@Flow_Element_List.0"
+      />
+    </Flow_Element_List>
+    <Flow_Element_List
+        xsi:type="mast2:Step"
+        Input_Event="//@Element_List.33/@Flow_Element_List.0" 
+        Output_Event="//@Element_List.33/@Flow_Element_List.1"
+        Step_Operation= "trajectory_planner"
+        Step_Schedulable_Resource= "th_trajectory_planner"/>
+    <Flow_Element_List
+        xsi:type="mast2:Step"
+        Input_Event="//@Element_List.33/@Flow_Element_List.1" 
+        Output_Event="//@Element_List.33/@Flow_Element_List.2"
+        Step_Operation= "command_message"
+        Step_Schedulable_Resource= "message_scheduler"/>
+    <Flow_Element_List
+        xsi:type="mast2:Step"
+        Input_Event="//@Element_List.33/@Flow_Element_List.2" 
+        Output_Event="//@Element_List.33/@Flow_Element_List.3"
+        Step_Operation= "command_manager"
+        Step_Schedulable_Resource= "th_command_manager"/>
+    <Flow_Element_List
+        xsi:type="mast2:Step"
+        Input_Event="//@Element_List.33/@Flow_Element_List.3" 
+        Output_Event="//@Element_List.33/@Flow_Element_List.4"
+        Step_Operation= "data_sender"
+        Step_Schedulable_Resource= "th_data_sender"/>
+    <Flow_Element_List
+        xsi:type="mast2:Step"
+        Input_Event="//@Element_List.33/@Flow_Element_List.4" 
+        Output_Event="//@Element_List.33/@Flow_Element_List.5"
+        Step_Operation= "status_message"
+        Step_Schedulable_Resource= "message_scheduler"/>
+    <Flow_Element_List
+        xsi:type="mast2:Step"
+        Input_Event="//@Element_List.33/@Flow_Element_List.5" 
+        Output_Event="//@Element_List.33/@Flow_Element_List.6"
+        Step_Operation= "reporter"
+        Step_Schedulable_Resource= "th_reporter"/>
+  </Element_List> 
+
+  <Element_List
+      xsi:type="mast2:Regular_End_To_End_Flow"
+      name="e2e_gui">
+    <Flow_Element_List
+        xsi:type="mast2:Periodic_Event"
+        name="e3"
+        Period="1000000.00"
+        Max_Jitter="0.000"
+        Phase="0.000"/>
+    <Flow_Element_List
+        xsi:type="mast2:Internal_Event"
+        name="o8">
+      <Observer_List
+          xsi:type="mast2:Hard_Global_Deadline"
+          Deadline="1000000.00"
+          Referenced_Event="//@Element_List.34/@Flow_Element_List.0"
+      />
+    </Flow_Element_List>
+    <Flow_Element_List
+        xsi:type="mast2:Step"
+        Input_Event="//@Element_List.34/@Flow_Element_List.0" 
+        Output_Event="//@Element_List.34/@Flow_Element_List.1"
+        Step_Operation= "gui"
+        Step_Schedulable_Resource= "th_gui"/>
+  </Element_List> 
+
+
+</mast2:Mast_Model> 

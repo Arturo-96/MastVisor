@@ -1,0 +1,43 @@
+[%var element = e;%]
+[%var time = e.Model_Elem;%]
+<!doctype html>
+<html lang=en>
+<head>
+  <!-- Load plotly.js into the DOM -->
+  <script src='https://cdn.plot.ly/plotly-2.25.2.min.js'></script>
+</head>
+<body>
+	<div id='myDiv'><!-- Plotly chart will be drawn inside this DIV --></div>
+	<script>
+		var trace1 = {
+      		y: ['[%=time.name%]'],
+			x: [[%=time.Flow_Element_List.get(2).Step_Operation.Worst_Case_Execution_Time%]],
+			name: 'c',
+      		type: 'bar',
+      		orientation: 'h'
+      	};
+		var trace2 = {
+      		y: ['[%=time.name%]'],
+			x: [[%=element.Timing_Result.Worst_Blocking_Time.get(0)%]],
+			name: 'b',
+      		type: 'bar',
+      		orientation: 'h'
+      	};
+      	var trace3 = {
+      		y: ['[%=time.name%]'],
+			x: [[%=element.Timing_Result.Worst_Global_Response_Time.get(0).Value.get(0)-element.Timing_Result.Worst_Blocking_Time.get(0)-time.Flow_Element_List.get(2).Step_Operation.Worst_Case_Execution_Time%]],
+			name: 'I',
+      		type: 'bar',
+      		orientation: 'h'
+      	};
+		
+		var data = [trace1, trace2, trace3];
+
+    	var layout = { barmode: 'stack'};
+
+    	var config = { responsive: true }
+
+    	Plotly.newPlot('myDiv', data, layout, config);
+	</script>
+</body>
+</html>

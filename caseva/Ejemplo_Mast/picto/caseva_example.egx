@@ -1,3 +1,10 @@
+pre {
+        var emfTool : new Native("org.eclipse.epsilon.emc.emf.tools.EmfTool");
+        emfTool.eCoreUtil.resolveAll(M.resource.resourceSet);
+        var classes = EClass.all.select(c | c.ePackage.name <>
+"ecore").sortBy(c|c.name);
+}
+
 rule Results2Table {
 	
 	template : "results2table.pinset"
@@ -12,12 +19,22 @@ rule Results2Table {
 rule Results2Chart {
 
 	parameters : Map {
-		"results" = M!End_To_End_Flow_Result.all
+		"path" = Sequence{"Charts"},
+		"format" = "html"
 	}
 	
-	template : "results2chart.egl"
-	
-	target : "charts/resultBarChart.html"
-	
+	template : "results2chart.egl"	
 	
 }
+
+rule Element2Chart 
+	transform e : mast2_results::End_To_End_Flow_Result{
+
+	parameters : Map {
+		"path" = Sequence{"Charts",e.Model_Elem.name},
+		"format" = "html"
+	}
+	
+	template : "element2chart.egl"
+}
+

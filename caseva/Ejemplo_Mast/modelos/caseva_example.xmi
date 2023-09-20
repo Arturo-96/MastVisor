@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<mast2:Mast_Model xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:mast2="http://mast.unican.es/ecoremast/Mast2" xsi:schemaLocation="http://mast.unican.es/ecoremast/Mast2 /mastresults/Mast2.ecore" name="caseva" Date="2000-01-01">
+<mast2:Mast_Model xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:mast2="http://mast.unican.es/ecoremast/Mast2" name="caseva" Date="2000-01-01">
   <Element_List xsi:type="mast2:Regular_Processor" name="cpu_1" Scheduler="cpu_1_sched"/>
   <Element_List xsi:type="mast2:Primary_Scheduler" name="cpu_1_sched" Schedulable_Resource_List="trajectory_planning_th light_manager_th reporter_th message_logger_th servo_control_th" Host="cpu_1">
     <Policy xsi:type="mast2:Fixed_Priority_Policy" Worst_Context_Switch="102.5"/>

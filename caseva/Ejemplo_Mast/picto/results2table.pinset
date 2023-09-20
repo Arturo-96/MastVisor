@@ -1,9 +1,9 @@
 dataset resultsStats over result : End_To_End_Flow_Result {
 
-	column event : result.Timing_Result.Event_Name.get(0)
+	column event : result.Model_Elem.name
 	column slack : result.Slack
 	column jitter : result.Timing_Result.Worst_Output_Jitter.get(0).Value.get(0)
-	column best_local_response : result.Timing_Result.Best_Global_Response_Time.get(0).Value.get(0)
-	column worst_local_response : result.Timing_Result.Worst_Global_Response_Time.get(0).Value.get(0)
-	column worst_blocking_time : result.Timing_Result.Worst_Blocking_Time.get(0)
+	column c : result.Model_Elem.Flow_Element_List.get(2).Step_Operation.Worst_Case_Execution_Time
+	column b : result.Timing_Result.Worst_Blocking_Time.get(0)
+	column I : result.Timing_Result.Worst_Global_Response_Time.get(0).Value.get(0)-result.Timing_Result.Worst_Blocking_Time.get(0)-result.Model_Elem.Flow_Element_List.get(2).Step_Operation.Worst_Case_Execution_Time
 }

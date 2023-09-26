@@ -15,7 +15,7 @@ rule Results2Table {
 		"format" = "csv"
 	}
 }
-
+//Genera la grafica general con todos los elementos 
 rule Results2Chart {
 
 	parameters : Map {
@@ -26,7 +26,7 @@ rule Results2Chart {
 	template : "results2chart.egl"	
 	
 }
-
+//Genera las subgraficas con un elemento cada una
 rule Element2Chart 
 	transform e : mast2_results::End_To_End_Flow_Result{
 

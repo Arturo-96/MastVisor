@@ -1,5 +1,7 @@
 [%var results= M!End_To_End_Flow_Result.all;%]
 [%var timing= M!Enclosing_Operation.all;%]
+
+[%var inf= 2147483647;%]
 <!doctype html>
 <html lang=en>
 <head>
@@ -22,10 +24,12 @@
 				[%var i = 0;%]
 				[%for( time in timing){%]
 					[%i++;%]
-					[%=time.Worst_Case_Execution_Time%][%if(i<count)%][%=','%]
+					[%if(time.Worst_Case_Execution_Time < inf){%]
+						[%=time.Worst_Case_Execution_Time%][%if(i<count)%][%=','%]
+					[%}%]
 				[%}%]
 			],
-			name: 'c',
+			name: 'C',
       		type: 'bar',
       		orientation: 'h'
       	};
@@ -41,10 +45,12 @@
 				[%var i = 0;%]
 				[%for( result in results){%]
 					[%i++;%]
-					[%=result.Timing_Result.Worst_Blocking_Time.get(0)%][%if(i<count)%][%=','%]
+					[%if(result.Timing_Result.Worst_Blocking_Time.get(0) < inf){%]
+						[%=result.Timing_Result.Worst_Blocking_Time.get(0)%][%if(i<count)%][%=','%]
+					[%}%]
 				[%}%]
 			],
-			name: 'b',
+			name: 'B',
       		type: 'bar',
       		orientation: 'h'
       	};
@@ -60,7 +66,10 @@
 				[%var i = 0;%]
 				[%for( result in results){%]
 					[%i++;%]
-					[%=result.Timing_Result.Worst_Global_Response_Time.get(0).Value.get(0)-result.Timing_Result.Worst_Blocking_Time.get(0)-timing.get(i-1).Worst_Case_Execution_Time%][%if(i<count)%][%=','%]
+					[%var I = result.Timing_Result.Worst_Global_Response_Time.get(0).Value.get(0)-result.Timing_Result.Worst_Blocking_Time.get(0)-timing.get(i-1).Worst_Case_Execution_Time;%]
+					[%if(I < inf){%]
+						[%=I%][%if(i<count)%][%=','%]
+					[%}%]
 				[%}%]
 			],
 			name: 'I',
@@ -69,8 +78,26 @@
       	};
 		
 		var data = [trace1, trace2, trace3];
-
-    	var layout = { barmode: 'stack'};
+		[%var m = M!Mast_Model.all;%]
+    	var layout = {
+    		title: {
+				text:'[%=m.get(0).name%]',
+				font: {
+      				family: 'Courier New, monospace',
+      				size: 48
+    			},
+    			xref: 'paper',
+    			x: 0.05,
+  			},
+    		barmode: 'stack',
+    		margin: {
+    			l: 200,
+    			r: 50,
+    			b: 100,
+    			t: 100,
+    			pad: 4
+    		}
+    	};
 
     	var config = { responsive: true }
 

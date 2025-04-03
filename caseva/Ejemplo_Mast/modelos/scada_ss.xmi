@@ -6,7 +6,7 @@
     xmlns:mast2="http://mast.unican.es/ecoremast/Mast2"
     xsi:schemaLocation="http://mast.unican.es/ecoremast/Mast2 /mastresults/Mast2.ecore"
     name="Unknown"
-    Date="2023-09-14T13:41:08"
+    Date="2023-10-10T11:37:08"
     System_PiP_Behavior="STRICT">
   <Element_List
       xsi:type="mast2:Regular_Processor"
@@ -100,16 +100,25 @@
   <Element_List
       xsi:type="mast2:Enclosing_Operation"
       name="display"
+      Worst_Case_Execution_Time="0.800000"
+      Avg_Case_Execution_Time="0.00" 
+      Best_Case_Execution_Time="0.00"
       Operation_List="get_avg_temp wite_avg"/>
 
   <Element_List
       xsi:type="mast2:Enclosing_Operation"
       name="read"
+      Worst_Case_Execution_Time="0.050000"
+      Avg_Case_Execution_Time="0.00" 
+      Best_Case_Execution_Time="0.00"
       Operation_List="put_temp"/>
 
   <Element_List
       xsi:type="mast2:Enclosing_Operation"
       name="check"
+      Worst_Case_Execution_Time="5.10"
+      Avg_Case_Execution_Time="0.00" 
+      Best_Case_Execution_Time="0.00"
       Operation_List="get_record write_record"/>
 
   <Element_List

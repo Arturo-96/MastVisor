@@ -9,8 +9,8 @@
     Model_File="rmt_with_fork_and_join.xmi"
     Model_Date="2000-01-01T00:00:00"
     Generator_Tool="MAST Schedulability Analysis, version 1.5.2.0"
-    Generation_Profile="mast_analysis default -c -p -d /home/michael/tmp/rmt_with_fork_and_join.xmi -s /home/michael/tmp/rmt_with_fork_and_join.txt /home/michael/tmp/rmt_with_fork_and_join.out.xmi"
-    Generation_Date="2023-09-14T13:41:07"
+    Generation_Profile="mast_analysis default -v -c -p -d /home/michael/tmp/rmt_with_fork_and_join.xmi -s /home/michael/tmp/rmt_with_fork_and_join.txt /home/michael/tmp/rmt_with_fork_and_join.out.xmi"
+    Generation_Date="2023-10-10T11:36:33"
     Slack="141.41">
   <Mast_Model
     href="rmt_with_fork_and_join.xmi#rmt"/>

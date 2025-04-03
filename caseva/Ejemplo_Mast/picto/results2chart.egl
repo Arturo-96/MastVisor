@@ -1,7 +1,56 @@
 [%var results= M!End_To_End_Flow_Result.all;%]
 [%var timing= M!Enclosing_Operation.all;%]
 
-[%var inf= 2147483647;%]
+[%var inf = 2147483647;%]
+[%var top = 0;%]
+[%var C = new List();%]
+[%var B = new List();%]
+[%var I = new List();%]
+[%var arrows = new List();%]
+
+<!-- Calcular limite del grafico -->
+[%for( result in results){%]
+	[%var d = 0;%]
+    [%for(a in result.Model_Elem.Flow_Element_List){%]
+    	[%if(a.Observer_List.isDefined() and a.Observer_List.size > 0) d = a.Observer_List.get(0).Deadline;%]
+    [%}%]
+    [%if(top<d)top = d;%]
+    [%for(a in result.Timing_Result){%]
+		[%if(top<a.Worst_Global_Response_Time.Value.get(0) and a.Worst_Global_Response_Time.Value.get(0) < inf)top = a.Worst_Global_Response_Time.Value.get(0);%]
+	[%}%]
+[%}%]
+
+<!-- Calcular tiempo ejecucion -->
+[%for( result in results){%]
+	[%var x = 0;%]
+	[%for(a in result.Model_Elem.Flow_Element_List){%]
+		[%if(a.Step_Operation.isDefined()){%]
+			[%if(a.Step_Operation.Worst_Case_Execution_Time.isDefined()){%]
+				[%x = x + a.Step_Operation.Worst_Case_Execution_Time;%]
+			[%}%]
+		[%}%]
+	[%}%]
+	[%C.add(x);%]
+[%}%]
+<!-- Calcular tiempo bloqueo -->
+[%for( result in results){%]
+	[%var x = 0;%]
+		[%for(a in result.Timing_Result){%]
+			[%x = x + a.Worst_Blocking_Time;%]
+		[%}%]
+		[%B.add(x);%]
+[%}%]
+<!-- Calcular tiempo Interferencia -->
+[%var i = 0;%]
+[%for( result in results){%]
+	[%var x = 0;%]
+	[%for(a in result.Timing_Result){%]
+		[%if(x<a.Worst_Global_Response_Time.Value.get(0))x = a.Worst_Global_Response_Time.Value.get(0);%]
+	[%}%]
+	[%I.add(x-C.get(i)-B.get(i));%]
+	[%i++;%]
+[%}%]
+
 <!doctype html>
 <html lang=en>
 <head>
@@ -22,11 +71,9 @@
 			],
 			x: [
 				[%var i = 0;%]
-				[%for( time in timing){%]
+				[%for( c in C){%]
 					[%i++;%]
-					[%if(time.Worst_Case_Execution_Time < inf){%]
-						[%=time.Worst_Case_Execution_Time%][%if(i<count)%][%=','%]
-					[%}%]
+					[%=c%][%if(i<count)%][%=','%]
 				[%}%]
 			],
 			name: 'C',
@@ -43,11 +90,9 @@
 			],
 			x: [
 				[%var i = 0;%]
-				[%for( result in results){%]
+				[%for( b in B){%]
 					[%i++;%]
-					[%if(result.Timing_Result.Worst_Blocking_Time.get(0) < inf){%]
-						[%=result.Timing_Result.Worst_Blocking_Time.get(0)%][%if(i<count)%][%=','%]
-					[%}%]
+					[%=b%][%if(i<count)%][%=','%]
 				[%}%]
 			],
 			name: 'B',
@@ -64,11 +109,14 @@
 			],
 			x: [
 				[%var i = 0;%]
-				[%for( result in results){%]
+				[%for( z in I){%]
 					[%i++;%]
-					[%var I = result.Timing_Result.Worst_Global_Response_Time.get(0).Value.get(0)-result.Timing_Result.Worst_Blocking_Time.get(0)-timing.get(i-1).Worst_Case_Execution_Time;%]
-					[%if(I < inf){%]
-						[%=I%][%if(i<count)%][%=','%]
+					[%if(z < inf){%]
+						[%=z%][%if(i<count)%][%=','%]
+						[%arrows.add(false);%]
+					[%}else{%]
+						[%=top+top*0.1%]
+						[%arrows.add(true);%]
 					[%}%]
 				[%}%]
 			],
@@ -81,7 +129,7 @@
 		[%var m = M!Mast_Model.all;%]
     	var layout = {
     		title: {
-				text:'[%=m.get(0).name%]',
+				text:'[%=m.name.get(0)%]',
 				font: {
       				family: 'Courier New, monospace',
       				size: 48
@@ -96,7 +144,38 @@
     			b: 100,
     			t: 100,
     			pad: 4
-    		}
+    		},
+    		shapes: [
+    			[%var i = 0;%]
+    			[%for(arr in arrows){%]
+    				[%if(arr){%]
+    					[%="{"%]
+    						[%="type: 'path',"%]
+    						[%="path: 'M "%][%=top+top*0.15%][%=" "%][%=i%][%=" L "%][%=top+top*0.25%][%=" "%][%=i%][%=" L "%][%=top+top*0.19%][%=" "%][%=i-0.25%][%=" L "%][%=top+top*0.19%][%=" "%][%=i+0.25%][%=" L "%][%=top+top*0.25%][%=" "%][%=i%][%="',"%]
+    						[%="fillcolor: 'rgba(0, 0, 0, 1)',"%]
+    						[%="line: {"%]
+    							[%="color: 'rgb(0, 0, 0)'"%]
+      						[%="}"%]
+    					[%="},"%]
+    				[%}%]
+    				[%i++;%]
+    			[%}%]
+    			[%var i = 0;%]
+    			[%for(result in results){%]
+    				[%var d = 0;%]
+    				[%for(a in result.Model_Elem.Flow_Element_List){%]
+    					[%if(a.Observer_List.isDefined() and a.Observer_List.size > 0) d = a.Observer_List.get(0).Deadline;%]
+    				[%}%]
+    				[%="{"%]
+    					[%="type: 'line',"%]
+    					[%="x0:"%][%=d%][%=","%]
+    					[%="y0:"%][%=i-0.5%][%=","%]
+    					[%="x1:"%][%=d%][%=","%]
+	   					[%="y1:"%][%=i+0.5%]
+    				[%="}"%][%if(i<count)%][%=","%]
+    				[%i++;%]
+    			[%}%]
+    		]
     	};
 
     	var config = { responsive: true }

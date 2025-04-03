@@ -333,26 +333,41 @@
   <Element_List
       xsi:type="mast2:Enclosing_Operation"
       name="servo_control"
+      Worst_Case_Execution_Time="1080.0"
+      Avg_Case_Execution_Time="1.000E+100" 
+      Best_Case_Execution_Time="0.00"
       Operation_List="read_new_point write_position_errors read_axis_positions read_servos_ok set_relay control_servos read read_all_alarms set acknowledge reset insert_error"/>
 
   <Element_List
       xsi:type="mast2:Enclosing_Operation"
       name="trajectory_planning"
+      Worst_Case_Execution_Time="9045.0"
+      Avg_Case_Execution_Time="1.000E+100" 
+      Best_Case_Execution_Time="0.00"
       Operation_List="new_point turn_on turn_off turn_on_timed turn_on_flashing turn_on_timed_flashing start_lights_test end_lights_test read read_all_alarms set acknowledge reset insert_error get_error write_position_command notify_error"/>
 
   <Element_List
       xsi:type="mast2:Enclosing_Operation"
       name="light_manager"
+      Worst_Case_Execution_Time="119.00"
+      Avg_Case_Execution_Time="1.000E+100" 
+      Best_Case_Execution_Time="0.00"
       Operation_List="time_lights insert_error"/>
 
   <Element_List
       xsi:type="mast2:Enclosing_Operation"
       name="reporter"
+      Worst_Case_Execution_Time="72952.0"
+      Avg_Case_Execution_Time="1.000E+100" 
+      Best_Case_Execution_Time="0.00"
       Operation_List="read_errors read_axis_positions read_servos_ok read_relay read read_all_alarms read_position_command"/>
 
   <Element_List
       xsi:type="mast2:Enclosing_Operation"
       name="message_logger"
+      Worst_Case_Execution_Time="46820.0"
+      Avg_Case_Execution_Time="1.000E+100" 
+      Best_Case_Execution_Time="0.00"
       Operation_List="get_error_from_queue"/>
 
 

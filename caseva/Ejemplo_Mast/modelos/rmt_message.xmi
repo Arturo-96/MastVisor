@@ -169,31 +169,49 @@
   <Element_List
       xsi:type="mast2:Enclosing_Operation"
       name="command_manager"
+      Worst_Case_Execution_Time="9045.0"
+      Avg_Case_Execution_Time="1.000E+100" 
+      Best_Case_Execution_Time="0.00"
       Operation_List="write_servos"/>
 
   <Element_List
       xsi:type="mast2:Enclosing_Operation"
       name="data_sender"
+      Worst_Case_Execution_Time="1220.0"
+      Avg_Case_Execution_Time="1.000E+100" 
+      Best_Case_Execution_Time="0.00"
       Operation_List="read_servos"/>
 
   <Element_List
       xsi:type="mast2:Enclosing_Operation"
       name="servo_control"
+      Worst_Case_Execution_Time="1019.0"
+      Avg_Case_Execution_Time="1.000E+100" 
+      Best_Case_Execution_Time="0.00"
       Operation_List="read_servos write_servos"/>
 
   <Element_List
       xsi:type="mast2:Enclosing_Operation"
       name="trajectory_planner"
+      Worst_Case_Execution_Time="7952.0"
+      Avg_Case_Execution_Time="1.000E+100" 
+      Best_Case_Execution_Time="0.00"
       Operation_List="get_command"/>
 
   <Element_List
       xsi:type="mast2:Enclosing_Operation"
       name="reporter"
+      Worst_Case_Execution_Time="2086.0"
+      Avg_Case_Execution_Time="1.000E+100" 
+      Best_Case_Execution_Time="0.00"
       Operation_List="write_status"/>
 
   <Element_List
       xsi:type="mast2:Enclosing_Operation"
       name="gui"
+      Worst_Case_Execution_Time="146820.0"
+      Avg_Case_Execution_Time="1.000E+100" 
+      Best_Case_Execution_Time="0.00"
       Operation_List="read_status set_command"/>
 
   <Element_List

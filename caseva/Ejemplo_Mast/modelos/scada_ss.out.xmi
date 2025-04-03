@@ -7,10 +7,10 @@
     xmlns:mast2_res="http://mast.unican.es/ecoremast/Mast2_Results"
     xsi:schemaLocation="http://mast.unican.es/ecoremast/Mast2 /mastresults/Mast2.ecore http://mast.unican.es/ecoremast/Mast2_Results /mastresults/Mast2_Results.ecore"
     Model_File="scada_ss.xmi"
-    Model_Date="2023-09-14T13:41:08" 
+    Model_Date="2023-10-10T11:37:08" 
     Generator_Tool="MAST Schedulability Analysis, version 1.5.2.0"
-    Generation_Profile="mast_analysis default -c -p -d /home/michael/tmp/scada_ss.xmi -s /home/michael/tmp/scada_ss.txt /home/michael/tmp/scada_ss.out.xmi"
-    Generation_Date="2023-09-14T13:41:08"
+    Generation_Profile="mast_analysis default -v -c -p -d /home/michael/tmp/scada_ss.xmi -s /home/michael/tmp/scada_ss.txt /home/michael/tmp/scada_ss.out.xmi"
+    Generation_Date="2023-10-10T11:37:08"
     Slack="17.58">
   <Mast_Model
     href="scada_ss.xmi#Unknown"/>

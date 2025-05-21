@@ -8,7 +8,7 @@ pre {
 // El script the prueba lo interpreta como egl y lanza error
 rule Results2Table {
 	
-	template : "../picto/results2table.pinset"
+	template : "results2table.pinset"
 	
 	parameters : Map {
 		"path" = Sequence{"Stats"},
@@ -25,7 +25,7 @@ rule Results2Chart {
 		"format" = "html"
 	}
 	
-	template : "../picto/results2chart.egl"	
+	template : "results2chart.egl"	
 	
 	target: "gen/results.html"
 }
@@ -38,7 +38,7 @@ rule Element2Chart
 		"format" = "html"
 	}
 	
-	template : "../picto/element2chart.egl"
+	template : "element2chart.egl"
 	
 	target: "gen/" + e.Model_Elem.name + ".html"
 }

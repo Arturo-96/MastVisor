@@ -14,7 +14,6 @@ rule Results2Table {
 		"icon" = "table",
 		"format" = "csv"
 	}
-	target: "gen/table.csv"
 }
 //Genera la grafica general con todos los elementos 
 rule Results2Chart {
@@ -26,7 +25,6 @@ rule Results2Chart {
 	
 	template : "results2chart.egl"	
 	
-	target: "gen/results.html"
 }
 //Genera las subgraficas con un elemento cada una
 rule Element2Chart 
@@ -38,7 +36,5 @@ rule Element2Chart
 	}
 	
 	template : "element2chart.egl"
-	
-	target: "gen/" + e.Model_Elem.name + ".html"
 }
 

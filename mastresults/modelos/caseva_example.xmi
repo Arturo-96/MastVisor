@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<mast2:Mast_Model xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:mast2="http://mast.unican.es/ecoremast/Mast2" name="caseva" Date="2000-01-01">
+  <Element_List xsi:type="mast2:Regular_Processor" name="cpu_1" Scheduler="cpu_1_sched"/>
+  <Element_List xsi:type="mast2:Primary_Scheduler" name="cpu_1_sched" Schedulable_Resource_List="trajectory_planning_th light_manager_th reporter_th message_logger_th servo_control_th" Host="cpu_1">
+    <Policy xsi:type="mast2:Fixed_Priority_Policy" Worst_Context_Switch="102.5"/>
+  </Element_List>
+  <Element_List xsi:type="mast2:Thread" name="servo_control_th" Scheduler="cpu_1_sched">
+    <Scheduling_Parameters xsi:type="mast2:Fixed_Priority_Params" Priority="415"/>
+  </Element_List>
+  <Element_List xsi:type="mast2:Thread" name="trajectory_planning_th" Scheduler="cpu_1_sched">
+    <Scheduling_Parameters xsi:type="mast2:Fixed_Priority_Params" Priority="412"/>
+  </Element_List>
+  <Element_List xsi:type="mast2:Thread" name="light_manager_th" Scheduler="cpu_1_sched">
+    <Scheduling_Parameters xsi:type="mast2:Fixed_Priority_Params" Priority="410"/>
+  </Element_List>
+  <Element_List xsi:type="mast2:Thread" name="reporter_th" Scheduler="cpu_1_sched">
+    <Scheduling_Parameters xsi:type="mast2:Fixed_Priority_Params" Priority="80"/>
+  </Element_List>
+  <Element_List xsi:type="mast2:Thread" name="message_logger_th" Scheduler="cpu_1_sched">
+    <Scheduling_Parameters xsi:type="mast2:Fixed_Priority_Params" Priority="70"/>
+  </Element_List>
+  <Element_List xsi:type="mast2:Immediate_Ceiling_Mutex" name="servo_data"/>
+  <Element_List xsi:type="mast2:Immediate_Ceiling_Mutex" name="arm"/>
+  <Element_List xsi:type="mast2:Immediate_Ceiling_Mutex" name="lights"/>
+  <Element_List xsi:type="mast2:Immediate_Ceiling_Mutex" name="alarms"/>
+  <Element_List xsi:type="mast2:Immediate_Ceiling_Mutex" name="position_command"/>
+  <Element_List xsi:type="mast2:Immediate_Ceiling_Mutex" name="error_log"/>
+  <Element_List xsi:type="mast2:Simple_Operation" name="read_new_point" Worst_Case_Execution_Time="87.0" Avg_Case_Execution_Time="0.0" Mutex_List="servo_data"/>
+  <Element_List xsi:type="mast2:Simple_Operation" name="write_position_errors" Worst_Case_Execution_Time="42.0" Avg_Case_Execution_Time="0.0" Mutex_List="servo_data"/>
+  <Element_List xsi:type="mast2:Simple_Operation" name="new_point" Worst_Case_Execution_Time="54.0" Avg_Case_Execution_Time="0.0" Mutex_List="servo_data"/>
+  <Element_List xsi:type="mast2:Simple_Operation" name="read_errors" Worst_Case_Execution_Time="47.0" Avg_Case_Execution_Time="0.0" Mutex_List="servo_data"/>
+  <Element_List xsi:type="mast2:Simple_Operation" name="read_axis_positions" Worst_Case_Execution_Time="135.0" Avg_Case_Execution_Time="0.0" Mutex_List="arm"/>
+  <Element_List xsi:type="mast2:Simple_Operation" name="read_motor_positions" Worst_Case_Execution_Time="101.0" Avg_Case_Execution_Time="0.0" Mutex_List="arm"/>
+  <Element_List xsi:type="mast2:Simple_Operation" name="read_servos_ok" Worst_Case_Execution_Time="66.0" Avg_Case_Execution_Time="0.0" Mutex_List="servo_data"/>
+  <Element_List xsi:type="mast2:Simple_Operation" name="read_relay" Worst_Case_Execution_Time="43.0" Avg_Case_Execution_Time="0.0" Mutex_List="arm"/>
+  <Element_List xsi:type="mast2:Simple_Operation" name="set_relay" Worst_Case_Execution_Time="62.0" Avg_Case_Execution_Time="0.0" Mutex_List="arm"/>
+  <Element_List xsi:type="mast2:Simple_Operation" name="control_servos" Worst_Case_Execution_Time="99.0" Avg_Case_Execution_Time="0.0" Mutex_List="arm"/>
+  <Element_List xsi:type="mast2:Simple_Operation" name="turn_on" Worst_Case_Execution_Time="74.0" Avg_Case_Execution_Time="0.0" Mutex_List="lights"/>
+  <Element_List xsi:type="mast2:Simple_Operation" name="turn_off" Worst_Case_Execution_Time="71.0" Avg_Case_Execution_Time="0.0" Mutex_List="lights"/>
+  <Element_List xsi:type="mast2:Simple_Operation" name="turn_on_timed" Worst_Case_Execution_Time="74.0" Avg_Case_Execution_Time="0.0" Mutex_List="lights"/>
+  <Element_List xsi:type="mast2:Simple_Operation" name="turn_on_flashing" Worst_Case_Execution_Time="125.0" Avg_Case_Execution_Time="0.0" Mutex_List="lights"/>
+  <Element_List xsi:type="mast2:Simple_Operation" name="turn_on_timed_flashing" Worst_Case_Execution_Time="114.0" Avg_Case_Execution_Time="0.0" Mutex_List="lights"/>
+  <Element_List xsi:type="mast2:Simple_Operation" name="start_lights_test" Worst_Case_Execution_Time="212.0" Avg_Case_Execution_Time="0.0" Mutex_List="lights"/>
+  <Element_List xsi:type="mast2:Simple_Operation" name="end_lights_test" Worst_Case_Execution_Time="217.0" Avg_Case_Execution_Time="0.0" Mutex_List="lights"/>
+  <Element_List xsi:type="mast2:Simple_Operation" name="time_lights" Worst_Case_Execution_Time="119.0" Avg_Case_Execution_Time="0.0" Mutex_List="lights"/>
+  <Element_List xsi:type="mast2:Simple_Operation" name="read" Worst_Case_Execution_Time="64.0" Avg_Case_Execution_Time="0.0" Mutex_List="alarms"/>
+  <Element_List xsi:type="mast2:Simple_Operation" name="read_all_alarms" Worst_Case_Execution_Time="78.0" Avg_Case_Execution_Time="0.0" Mutex_List="alarms"/>
+  <Element_List xsi:type="mast2:Simple_Operation" name="set" Worst_Case_Execution_Time="59.0" Avg_Case_Execution_Time="0.0" Mutex_List="alarms"/>
+  <Element_List xsi:type="mast2:Simple_Operation" name="acknowledge" Worst_Case_Execution_Time="60.0" Avg_Case_Execution_Time="0.0" Mutex_List="alarms"/>
+  <Element_List xsi:type="mast2:Simple_Operation" name="reset" Worst_Case_Execution_Time="60.0" Avg_Case_Execution_Time="0.0" Mutex_List="alarms"/>
+  <Element_List xsi:type="mast2:Simple_Operation" name="insert_error" Worst_Case_Execution_Time="79.0" Avg_Case_Execution_Time="0.0" Mutex_List="alarms"/>
+  <Element_List xsi:type="mast2:Simple_Operation" name="get_error" Worst_Case_Execution_Time="72.0" Avg_Case_Execution_Time="0.0" Mutex_List="alarms"/>
+  <Element_List xsi:type="mast2:Simple_Operation" name="read_position_command" Worst_Case_Execution_Time="47.0" Avg_Case_Execution_Time="0.0" Mutex_List="position_command"/>
+  <Element_List xsi:type="mast2:Simple_Operation" name="write_position_command" Worst_Case_Execution_Time="42.0" Avg_Case_Execution_Time="0.0" Mutex_List="position_command"/>
+  <Element_List xsi:type="mast2:Simple_Operation" name="notify_error" Worst_Case_Execution_Time="85.0" Avg_Case_Execution_Time="0.0" Mutex_List="error_log"/>
+  <Element_List xsi:type="mast2:Simple_Operation" name="get_error_from_queue" Worst_Case_Execution_Time="79.0" Avg_Case_Execution_Time="0.0" Mutex_List="error_log"/>
+  <Element_List xsi:type="mast2:Enclosing_Operation" name="servo_control" Operation_List="read_new_point write_position_errors read_axis_positions read_servos_ok set_relay control_servos read read_all_alarms set acknowledge reset insert_error" Worst_Case_Execution_Time="1080.0" Avg_Case_Execution_Time="0.0"/>
+  <Element_List xsi:type="mast2:Enclosing_Operation" name="trajectory_planning" Operation_List="new_point turn_on turn_off turn_on_timed turn_on_flashing turn_on_timed_flashing start_lights_test end_lights_test read read_all_alarms set acknowledge reset insert_error get_error write_position_command notify_error" Worst_Case_Execution_Time="9045.0" Avg_Case_Execution_Time="0.0"/>
+  <Element_List xsi:type="mast2:Enclosing_Operation" name="light_manager" Operation_List="time_lights insert_error" Worst_Case_Execution_Time="119.0" Avg_Case_Execution_Time="0.0"/>
+  <Element_List xsi:type="mast2:Enclosing_Operation" name="reporter" Operation_List="read_errors read_axis_positions read_servos_ok read_relay read read_all_alarms read_position_command" Worst_Case_Execution_Time="72952.0" Avg_Case_Execution_Time="0.0"/>
+  <Element_List xsi:type="mast2:Enclosing_Operation" name="message_logger" Operation_List="get_error_from_queue" Worst_Case_Execution_Time="46820.0" Avg_Case_Execution_Time="0.0"/>
+  <Element_List xsi:type="mast2:Regular_End_To_End_Flow" name="servo_control_e2e">
+    <Flow_Element_List xsi:type="mast2:Periodic_Event" name="e1" Period="5000.0"/>
+    <Flow_Element_List xsi:type="mast2:Internal_Event" name="o1">
+      <Observer_List xsi:type="mast2:Hard_Global_Deadline" Deadline="5000.0" Referenced_Event="//@Element_List.47/@Flow_Element_List.0"/>
+    </Flow_Element_List>
+    <Flow_Element_List xsi:type="mast2:Step" Input_Event="//@Element_List.47/@Flow_Element_List.0" Output_Event="//@Element_List.47/@Flow_Element_List.1" Step_Operation="servo_control" Step_Schedulable_Resource="servo_control_th"/>
+  </Element_List>
+  <Element_List xsi:type="mast2:Regular_End_To_End_Flow" name="trajectory_planning_e2e">
+    <Flow_Element_List xsi:type="mast2:Periodic_Event" name="e2" Period="50000.0"/>
+    <Flow_Element_List xsi:type="mast2:Internal_Event" name="o2">
+      <Observer_List xsi:type="mast2:Hard_Global_Deadline" Deadline="50000.0" Referenced_Event="//@Element_List.48/@Flow_Element_List.0"/>
+    </Flow_Element_List>
+    <Flow_Element_List xsi:type="mast2:Step" Input_Event="//@Element_List.48/@Flow_Element_List.0" Output_Event="//@Element_List.48/@Flow_Element_List.1" Step_Operation="trajectory_planning" Step_Schedulable_Resource="trajectory_planning_th"/>
+  </Element_List>
+  <Element_List xsi:type="mast2:Regular_End_To_End_Flow" name="light_manager_e2e">
+    <Flow_Element_List xsi:type="mast2:Periodic_Event" name="e3" Period="100000.0"/>
+    <Flow_Element_List xsi:type="mast2:Internal_Event" name="o3">
+      <Observer_List xsi:type="mast2:Hard_Global_Deadline" Deadline="100000.0" Referenced_Event="//@Element_List.49/@Flow_Element_List.0"/>
+    </Flow_Element_List>
+    <Flow_Element_List xsi:type="mast2:Step" Input_Event="//@Element_List.49/@Flow_Element_List.0" Output_Event="//@Element_List.49/@Flow_Element_List.1" Step_Operation="light_manager" Step_Schedulable_Resource="light_manager_th"/>
+  </Element_List>
+  <Element_List xsi:type="mast2:Regular_End_To_End_Flow" name="reporter_e2e">
+    <Flow_Element_List xsi:type="mast2:Periodic_Event" name="e4" Period="1000000.0"/>
+    <Flow_Element_List xsi:type="mast2:Internal_Event" name="o4">
+      <Observer_List xsi:type="mast2:Hard_Global_Deadline" Deadline="1000000.0" Referenced_Event="//@Element_List.50/@Flow_Element_List.0"/>
+    </Flow_Element_List>
+    <Flow_Element_List xsi:type="mast2:Step" Input_Event="//@Element_List.50/@Flow_Element_List.0" Output_Event="//@Element_List.50/@Flow_Element_List.1" Step_Operation="reporter" Step_Schedulable_Resource="reporter_th"/>
+  </Element_List>
+  <Element_List xsi:type="mast2:Regular_End_To_End_Flow" name="message_logger_e2e">
+    <Flow_Element_List xsi:type="mast2:Unbounded_Event" name="e5" Avg_Interarrival="1000000.0"/>
+    <Flow_Element_List xsi:type="mast2:Internal_Event" name="o5"/>
+    <Flow_Element_List xsi:type="mast2:Step" Input_Event="//@Element_List.51/@Flow_Element_List.0" Output_Event="//@Element_List.51/@Flow_Element_List.1" Step_Operation="message_logger" Step_Schedulable_Resource="message_logger_th"/>
+  </Element_List>
+</mast2:Mast_Model>

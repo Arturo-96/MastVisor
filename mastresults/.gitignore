@@ -1,5 +1,4 @@
-charts
-*.html
+/charts/
 /bin/
 /target/
 /gen/

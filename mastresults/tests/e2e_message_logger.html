@@ -1,0 +1,152 @@
+
+
+<!-- Calcular limite del grafico -->
+
+<!-- Calcular tiempo ejecucion -->
+<!-- Calcular tiempo bloqueo -->
+<!-- Calcular tiempo Interferencia -->
+
+<!doctype html>
+<html lang=en>
+<head>
+  <!-- Load plotly.js into the DOM -->
+  <script src='https://cdn.plot.ly/plotly-2.25.2.min.js'></script>
+</head>
+<body>
+	<div id='myDiv'><!-- Plotly chart will be drawn inside this DIV --></div>
+	<script>
+		var trace1 = {
+      		y: [
+					'e2e_servo_control',
+					'e2e_trajectory_planning',
+					'e2e_light_manager',
+					'e2e_reporter',
+					'e2e_message_logger'
+			],
+			x: [
+					1080.0,
+					9045.0,
+					119.0,
+					72952.0,
+					46820.0
+			],
+			name: 'C',
+      		type: 'bar',
+      		orientation: 'h'
+      	};
+		var trace2 = {
+      		y: [
+					'e2e_servo_control',
+					'e2e_trajectory_planning',
+					'e2e_light_manager',
+					'e2e_reporter',
+					'e2e_message_logger'
+			],
+			x: [
+					135.0,
+					135.0,
+					135.0,
+					79.0,
+					0.0
+			],
+			name: 'B',
+      		type: 'bar',
+      		orientation: 'h'
+      	};
+      	var trace3 = {
+      		y: [
+					'e2e_servo_control',
+					'e2e_trajectory_planning',
+					'e2e_light_manager',
+					'e2e_reporter',
+					'e2e_message_logger'
+			],
+			x: [
+						205.0,
+						4060.0,
+						13310.0,
+						64583.0,
+						1100000.0014901161
+			],
+			name: 'I',
+      		type: 'bar',
+      		orientation: 'h'
+      	};
+		
+		var data = [trace1, trace2, trace3];
+
+    	var layout = {
+    		title: {
+				text:'e2e_message_logger',
+				font: {
+      				family: 'Courier New, monospace',
+      				size: 24
+    			},
+    			xref: 'paper',
+    			x: 0.05,
+  			},
+    		barmode: 'stack',
+    		margin: {
+    			l: 200,
+    			r: 50,
+    			b: 100,
+    			t: 100,
+    			pad: 4
+    		},
+    		shapes: [
+    					{
+    						type: 'path',
+    						path: 'M 1150000.0059604645 4 L 1250000.0 4 L 1189999.9976158142 3.75 L 1189999.9976158142 4.25 L 1250000.0 4',
+    						fillcolor: 'rgba(0, 0, 0, 1)',
+    						line: {
+    							color: 'rgb(0, 0, 0)'
+      						}
+    					},
+    				{
+    					type: 'line',
+    					x0:5000.0,
+    					y0:-0.5,
+    					x1:5000.0,
+	   					y1:0.5
+    				},
+    				{
+    					type: 'line',
+    					x0:50000.0,
+    					y0:0.5,
+    					x1:50000.0,
+	   					y1:1.5
+    				},
+    				{
+    					type: 'line',
+    					x0:100000.0,
+    					y0:1.5,
+    					x1:100000.0,
+	   					y1:2.5
+    				},
+    				{
+    					type: 'line',
+    					x0:1000000.0,
+    					y0:2.5,
+    					x1:1000000.0,
+	   					y1:3.5
+    				},
+    				{
+    					type: 'line',
+    					x0:0,
+    					y0:3.5,
+    					x1:0,
+	   					y1:4.5
+    				},
+    		],
+    		xaxis: {range: [0, 
+    			1300000.011920929
+    			
+    		]},
+    	};
+
+    	var config = { responsive: true }
+
+    	Plotly.newPlot('myDiv', data, layout, config);
+	</script>
+</body>
+</html>

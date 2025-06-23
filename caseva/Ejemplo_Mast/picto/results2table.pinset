@@ -1,0 +1,10 @@
+dataset resultsStats over result : End_To_End_Flow_Result {
+
+	column flow : result.Model_Elem.name
+	column slack : result.Slack
+	column jitter : result.Timing_Result.Worst_Output_Jitter.get(0).Value.get(0)
+	column C : result.Model_Elem.Flow_Element_List.select(x | x.Step_Operation.isDefined()) -> collect(x | x.Step_Operation.Worst_Case_Execution_Time) -> sum()
+	column B : result.Timing_Result.Worst_Blocking_Time.get(0)
+	column I : result.Timing_Result.Worst_Global_Response_Time.get(0).Value.get(0)-result.Timing_Result.Worst_Blocking_Time.get(0)-result.Model_Elem.Flow_Element_List.select(x | x.Step_Operation.isDefined()) -> collect(x | x.Step_Operation.Worst_Case_Execution_Time) -> sum()
+	column deadline : result.Model_Elem.Flow_Element_List.get(1).Observer_List.Deadline.last()
+}

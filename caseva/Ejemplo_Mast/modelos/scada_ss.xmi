@@ -1,0 +1,284 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<mast2:Mast_Model
+    xmi:version="2.0"
+    xmlns:xmi="http://www.omg.org/XMI"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:mast2="http://mast.unican.es/ecoremast/Mast2"
+    xsi:schemaLocation="http://mast.unican.es/ecoremast/Mast2 /mastresults/Mast2.ecore"
+    name="Unknown"
+    Date="2023-10-10T11:37:08"
+    System_PiP_Behavior="STRICT">
+  <Element_List
+      xsi:type="mast2:Regular_Processor"
+      name="cpu1"
+      Scheduler="cpu1_sched"
+      Worst_ISR_Switch="0.001000"
+      Avg_ISR_Switch="0.00"
+      Best_ISR_Switch="0.00"
+      Speed_Factor="1.00"
+      Max_Interrupt_Priority="256"
+      Min_Interrupt_Priority="256"
+      Timer_List="cpu1_timer"/>
+  <Element_List
+      xsi:type="mast2:Alarm_Clock"
+      name="cpu1_timer"
+      Max_Overhead="0.003000"
+      Avg_Overhead="0.00"
+      Min_Overhead="0.00"/>
+
+  <Element_List
+      xsi:type="mast2:Primary_Scheduler"
+      name="cpu1_sched"
+      Host="cpu1">
+    <Policy
+        xsi:type="mast2:Fixed_Priority_Policy"
+        Max_Priority="256"
+        Min_Priority="1"
+        Worst_Context_Switch="0.001000"
+        Avg_Context_Switch="0.00"
+        Best_Context_Switch="0.00"/>
+  </Element_List>
+
+  <Element_List
+      xsi:type="mast2:Immediate_Ceiling_Mutex"
+      name="screen" 
+      Ceiling="87"
+      Preassigned="NO"/>
+
+  <Element_List
+      xsi:type="mast2:Immediate_Ceiling_Mutex"
+      name="measmnt_buffer" 
+      Ceiling="172"
+      Preassigned="NO"/>
+
+
+  <Element_List
+      xsi:type="mast2:Simple_Operation"
+      name="wite_avg"
+      Worst_Case_Execution_Time="0.700000"
+      Avg_Case_Execution_Time="0.00" 
+      Best_Case_Execution_Time="0.00"
+      Mutex_To_Lock_List="screen"
+      Mutex_To_Unlock_List="screen"/>
+
+  <Element_List
+      xsi:type="mast2:Simple_Operation"
+      name="write_record"
+      Worst_Case_Execution_Time="4.90"
+      Avg_Case_Execution_Time="0.00" 
+      Best_Case_Execution_Time="0.00"
+      Mutex_To_Lock_List="screen"
+      Mutex_To_Unlock_List="screen"/>
+
+  <Element_List
+      xsi:type="mast2:Simple_Operation"
+      name="put_temp"
+      Worst_Case_Execution_Time="0.010000"
+      Avg_Case_Execution_Time="0.00" 
+      Best_Case_Execution_Time="0.00"
+      Mutex_To_Lock_List="measmnt_buffer"
+      Mutex_To_Unlock_List="measmnt_buffer"/>
+
+  <Element_List
+      xsi:type="mast2:Simple_Operation"
+      name="get_avg_temp"
+      Worst_Case_Execution_Time="0.010000"
+      Avg_Case_Execution_Time="0.00" 
+      Best_Case_Execution_Time="0.00"
+      Mutex_To_Lock_List="measmnt_buffer"
+      Mutex_To_Unlock_List="measmnt_buffer"/>
+
+  <Element_List
+      xsi:type="mast2:Simple_Operation"
+      name="get_record"
+      Worst_Case_Execution_Time="0.030000"
+      Avg_Case_Execution_Time="0.00" 
+      Best_Case_Execution_Time="0.00"
+      Mutex_To_Lock_List="measmnt_buffer"
+      Mutex_To_Unlock_List="measmnt_buffer"/>
+
+  <Element_List
+      xsi:type="mast2:Enclosing_Operation"
+      name="display"
+      Worst_Case_Execution_Time="0.800000"
+      Avg_Case_Execution_Time="0.00" 
+      Best_Case_Execution_Time="0.00"
+      Operation_List="get_avg_temp wite_avg"/>
+
+  <Element_List
+      xsi:type="mast2:Enclosing_Operation"
+      name="read"
+      Worst_Case_Execution_Time="0.050000"
+      Avg_Case_Execution_Time="0.00" 
+      Best_Case_Execution_Time="0.00"
+      Operation_List="put_temp"/>
+
+  <Element_List
+      xsi:type="mast2:Enclosing_Operation"
+      name="check"
+      Worst_Case_Execution_Time="5.10"
+      Avg_Case_Execution_Time="0.00" 
+      Best_Case_Execution_Time="0.00"
+      Operation_List="get_record write_record"/>
+
+  <Element_List
+      xsi:type="mast2:Simple_Operation"
+      name="sensor_isr"
+      Worst_Case_Execution_Time="0.002000"
+      Avg_Case_Execution_Time="0.00" 
+      Best_Case_Execution_Time="0.00"/>
+
+  <Element_List
+      xsi:type="mast2:Simple_Operation"
+      name="kbd_isr"
+      Worst_Case_Execution_Time="0.004000"
+      Avg_Case_Execution_Time="0.00" 
+      Best_Case_Execution_Time="0.00"/>
+
+
+  <Element_List
+      xsi:type="mast2:Thread"
+      name="th_read"
+      Scheduler="cpu1_sched">
+    <Scheduling_Parameters
+        xsi:type="mast2:Fixed_Priority_Params"
+        Priority="172"
+        Preassigned="NO"/>
+  </Element_List>
+  <Element_List
+      xsi:type="mast2:Thread"
+      name="th_display"
+      Scheduler="cpu1_sched">
+    <Scheduling_Parameters
+        xsi:type="mast2:Fixed_Priority_Params"
+        Priority="2"
+        Preassigned="NO"/>
+  </Element_List>
+  <Element_List
+      xsi:type="mast2:Thread"
+      name="th_check"
+      Scheduler="cpu1_sched">
+    <Scheduling_Parameters
+        xsi:type="mast2:Sporadic_Server_Params"
+        Priority="87"
+        Preassigned="NO"
+        Initial_Capacity="6.000"
+        Replenishment_Period="50.000"
+        Max_Pending_Replenishments="1"
+        Background_Priority="1"/>
+  </Element_List>
+  <Element_List
+      xsi:type="mast2:Thread"
+      name="th_sensor_isr"
+      Scheduler="cpu1_sched">
+    <Scheduling_Parameters
+        xsi:type="mast2:Interrupt_FP_Params"
+        Priority="256"/>
+  </Element_List>
+  <Element_List
+      xsi:type="mast2:Thread"
+      name="th_kbd_isr"
+      Scheduler="cpu1_sched">
+    <Scheduling_Parameters
+        xsi:type="mast2:Interrupt_FP_Params"
+        Priority="256"/>
+  </Element_List>
+
+  <Element_List
+      xsi:type="mast2:Regular_End_To_End_Flow"
+      name="tr_read">
+    <Flow_Element_List
+        xsi:type="mast2:Periodic_Event"
+        name="sensor"
+        Period="100.000"
+        Max_Jitter="0.000"
+        Phase="0.000"/>
+    <Flow_Element_List
+        xsi:type="mast2:Internal_Event"
+        name="put">
+      <Observer_List
+          xsi:type="mast2:Hard_Global_Deadline"
+          Deadline="1.000"
+          Referenced_Event="//@Element_List.20/@Flow_Element_List.0"
+      />
+    </Flow_Element_List>
+    <Flow_Element_List
+        xsi:type="mast2:Internal_Event"
+        name="i1"/>
+    <Flow_Element_List
+        xsi:type="mast2:Step"
+        Input_Event="//@Element_List.20/@Flow_Element_List.2" 
+        Output_Event="//@Element_List.20/@Flow_Element_List.1"
+        Step_Operation= "read"
+        Step_Schedulable_Resource= "th_read"/>
+    <Flow_Element_List
+        xsi:type="mast2:Step"
+        Input_Event="//@Element_List.20/@Flow_Element_List.0" 
+        Output_Event="//@Element_List.20/@Flow_Element_List.2"
+        Step_Operation= "kbd_isr"
+        Step_Schedulable_Resource= "th_kbd_isr"/>
+  </Element_List> 
+
+  <Element_List
+      xsi:type="mast2:Regular_End_To_End_Flow"
+      name="tr_display">
+    <Flow_Element_List
+        xsi:type="mast2:Periodic_Event"
+        name="dis"
+        Period="1000.00"
+        Max_Jitter="0.000"
+        Phase="0.000"/>
+    <Flow_Element_List
+        xsi:type="mast2:Internal_Event"
+        name="disp_out">
+      <Observer_List
+          xsi:type="mast2:Hard_Global_Deadline"
+          Deadline="100.000"
+          Referenced_Event="//@Element_List.21/@Flow_Element_List.0"
+      />
+    </Flow_Element_List>
+    <Flow_Element_List
+        xsi:type="mast2:Step"
+        Input_Event="//@Element_List.21/@Flow_Element_List.0" 
+        Output_Event="//@Element_List.21/@Flow_Element_List.1"
+        Step_Operation= "display"
+        Step_Schedulable_Resource= "th_display"/>
+  </Element_List> 
+
+  <Element_List
+      xsi:type="mast2:Regular_End_To_End_Flow"
+      name="tr_check">
+    <Flow_Element_List
+        xsi:type="mast2:Sporadic_Event"
+        name="rec"
+        Avg_Interarrival="0.000"
+        Distribution="UNIFORM"
+        Min_Interarrival="50.000"/>
+    <Flow_Element_List
+        xsi:type="mast2:Internal_Event"
+        name="rec_out">
+      <Observer_List
+          xsi:type="mast2:Hard_Global_Deadline"
+          Deadline="20.000"
+          Referenced_Event="//@Element_List.22/@Flow_Element_List.0"
+      />
+    </Flow_Element_List>
+    <Flow_Element_List
+        xsi:type="mast2:Internal_Event"
+        name="i2"/>
+    <Flow_Element_List
+        xsi:type="mast2:Step"
+        Input_Event="//@Element_List.22/@Flow_Element_List.2" 
+        Output_Event="//@Element_List.22/@Flow_Element_List.1"
+        Step_Operation= "check"
+        Step_Schedulable_Resource= "th_check"/>
+    <Flow_Element_List
+        xsi:type="mast2:Step"
+        Input_Event="//@Element_List.22/@Flow_Element_List.0" 
+        Output_Event="//@Element_List.22/@Flow_Element_List.2"
+        Step_Operation= "kbd_isr"
+        Step_Schedulable_Resource= "th_kbd_isr"/>
+  </Element_List> 
+
+
+</mast2:Mast_Model> 

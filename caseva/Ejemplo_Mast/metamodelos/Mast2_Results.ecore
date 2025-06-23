@@ -1,0 +1,344 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ecore:EPackage xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="mast2_results" nsURI="http://mast.unican.es/ecoremast/Mast2_Results"
+    nsPrefix="mast2_res">
+  <eClassifiers xsi:type="ecore:EClass" name="Real_Time_Situation_Results">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="Model_File" lowerBound="1"
+        eType="ecore:EDataType http://mast.unican.es/ecoremast/Mast2#//Pathname"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="Model_Date" ordered="false"
+        lowerBound="1" eType="ecore:EDataType http://mast.unican.es/ecoremast/Mast2#//Date_Time">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="Date of last modification of the analysed real-time situation model, in the ISO 8601 format YYYY-MM-DDThh:mm:ss."/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="Generator_Tool" ordered="false"
+        lowerBound="1" eType="ecore:EDataType http://mast.unican.es/ecoremast/Mast2#//Text">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="Quoted text representing the name of the tool that generated the results."/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="Generation_Profile" ordered="false"
+        lowerBound="1" eType="ecore:EDataType http://mast.unican.es/ecoremast/Mast2#//Text">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="Quoted text representing the command and options used to invoke the tool for the generation of the results."/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="Generation_Date" ordered="false"
+        lowerBound="1" eType="ecore:EDataType http://mast.unican.es/ecoremast/Mast2#//Date_Time">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="Date of generation of results, in the ISO 8601 format YYYY-MMDDThh:mm:ss."/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="Slack" eType="ecore:EDataType http://mast.unican.es/ecoremast/Mast2#//Extended_Percentage"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="Mast_Model" lowerBound="1"
+        eType="ecore:EClass http://mast.unican.es/ecoremast/Mast2#//Mast_Model"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="Element_List" upperBound="-1"
+        eType="#//Result_Element" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Result_Element" abstract="true">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="Model_Elem" lowerBound="1"
+        eType="ecore:EClass http://mast.unican.es/ecoremast/Mast2#//Model_Element"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Processing_Resource_Result" abstract="true"
+      eSuperTypes="#//Result_Element">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="Slack" eType="ecore:EDataType http://mast.unican.es/ecoremast/Mast2#//Extended_Percentage"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="Utilization" ordered="false"
+        eType="#//Utilization_Result" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Switch_Result" eSuperTypes="#//Processing_Resource_Result"/>
+  <eClassifiers xsi:type="ecore:EClass" name="Computing_Resource_Result" eSuperTypes="#//Processing_Resource_Result">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="Interrupt_Queue_Size" eType="ecore:EDataType http://mast.unican.es/ecoremast/Mast2#//Natural"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="Detailed_Utilization" ordered="false"
+        eType="#//Computing_Resource_Detailed_Utilization_Result" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Network_Result" eSuperTypes="#//Processing_Resource_Result">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="Detailed_Utilization" ordered="false"
+        eType="#//Network_Detailed_Utilization_Result" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Utilization_Result">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="Total" ordered="false"
+        lowerBound="1" eType="ecore:EDataType http://mast.unican.es/ecoremast/Mast2#//Extended_Percentage">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="Overall utilization in the processing result."/>
+      </eAnnotations>
+    </eStructuralFeatures>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Computing_Resource_Detailed_Utilization_Result"
+      eSuperTypes="#//Utilization_Result">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="Context_Switch" ordered="false"
+        lowerBound="1" eType="ecore:EDataType http://mast.unican.es/ecoremast/Mast2#//Extended_Percentage"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="Driver" ordered="false"
+        lowerBound="1" eType="ecore:EDataType http://mast.unican.es/ecoremast/Mast2#//Extended_Percentage"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="Timer" ordered="false"
+        lowerBound="1" eType="ecore:EDataType http://mast.unican.es/ecoremast/Mast2#//Extended_Percentage"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Network_Detailed_Utilization_Result"
+      eSuperTypes="#//Utilization_Result">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="Overhead" ordered="false"
+        lowerBound="1" eType="ecore:EDataType http://mast.unican.es/ecoremast/Mast2#//Extended_Percentage">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="utilization of the processing resource by the network drivers overhead."/>
+      </eAnnotations>
+    </eStructuralFeatures>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Scheduler_Result" eSuperTypes="#//Result_Element">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="Ready_Queue_Size" eType="ecore:EDataType http://mast.unican.es/ecoremast/Mast2#//Natural"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Timetable_Driven_Scheduler_Result" eSuperTypes="#//Scheduler_Result">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="Scheduling_Policy_Result"
+        lowerBound="1" eType="#//Timetable_Driven_Result" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Schedulable_Resource_Result" abstract="true"
+      eSuperTypes="#//Result_Element">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="Scheduling_Params_Result"
+        eType="#//Scheduling_Params_Result" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Thread_Result" eSuperTypes="#//Schedulable_Resource_Result">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="Synchronization_Params_Result"
+        eType="#//Synchronization_Params_Result" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Communication_Channel_Result" eSuperTypes="#//Schedulable_Resource_Result"/>
+  <eClassifiers xsi:type="ecore:EClass" name="Virtual_Schedulable_Resource_Result"
+      eSuperTypes="#//Thread_Result">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="Resource_Reservation_Param_Result"
+        eType="#//Virtual_Resource_Params_Result" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Virtual_Communication_Channel_Result"
+      eSuperTypes="#//Communication_Channel_Result">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="Resource_Reservation_Params_Result"
+        eType="#//Virtual_Comm_Channel_Params_Result" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Mutual_Exclusion_Resource_Result" abstract="true"
+      eSuperTypes="#//Result_Element">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="Utilization" eType="ecore:EDataType http://mast.unican.es/ecoremast/Mast2#//Extended_Percentage"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="Queue_Size" eType="ecore:EDataType http://mast.unican.es/ecoremast/Mast2#//Natural"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Immediate_Ceiling_Mutex_Result" eSuperTypes="#//Mutual_Exclusion_Resource_Result">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="Ceiling" eType="ecore:EDataType http://mast.unican.es/ecoremast/Mast2#//Priority"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="SRP_Mutex_Result" eSuperTypes="#//Mutual_Exclusion_Resource_Result">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="Preemption_Level" eType="ecore:EDataType http://mast.unican.es/ecoremast/Mast2#//Priority"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Operation_Result" eSuperTypes="#//Result_Element">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="Slack" lowerBound="1" eType="ecore:EDataType http://mast.unican.es/ecoremast/Mast2#//Extended_Percentage"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="End_To_End_Flow_Result" eSuperTypes="#//Result_Element">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="Slack" eType="ecore:EDataType http://mast.unican.es/ecoremast/Mast2#//Extended_Percentage"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="Timing_Result" ordered="false"
+        upperBound="-1" eType="#//Timing_Result" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Timing_Result">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="Event_Name" ordered="false"
+        lowerBound="1" eType="ecore:EDataType http://mast.unican.es/ecoremast/Mast2#//Identifier">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="Name of event. The timing results always corresponds to the activity or activities that generated the event represented by this name."/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="Best_Local_Response_Time"
+        ordered="false" eType="ecore:EDataType http://mast.unican.es/ecoremast/Mast2#//Time">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="Best local response time, measured as the best difference between the activation and completion times of the activity that generated the event with this result."/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="Worst_Local_Response_Time"
+        ordered="false" eType="ecore:EDataType http://mast.unican.es/ecoremast/Mast2#//Time">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="Worst local response time, measured as the worst difference between the activation and completion times of the activity that generated the event with this result"/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="Worst_Blocking_Time" ordered="false"
+        eType="ecore:EDataType http://mast.unican.es/ecoremast/Mast2#//Time">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="Worst-case delay caused by the use of shared resources. It represents the blocking time for the segment of activities preceding the referenced event. A segment of activities is a set of consecutive activities (consecutive in the transaction graph) that are run by the same scheduling server."/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="Num_Of_Suspensions" ordered="false"
+        eType="ecore:EDataType http://mast.unican.es/ecoremast/Mast2#//Natural">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="Maximum number of suspensions caused by shared resources, for the segment of activities preceding the referenced event"/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="Num_Of_Queued_Activations"
+        ordered="false" eType="ecore:EDataType http://mast.unican.es/ecoremast/Mast2#//Positive">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="Maximum number of suspensions caused by shared resources, for the segment of activities preceding the referenced event"/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="Worst_Output_Jitter" ordered="false"
+        upperBound="-1" eType="#//Output_Jitter_Result" containment="true">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="List of maximum output jitter values, each representing the maximum jitter relative to a particular input event."/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="Worst_Global_Response_Time"
+        ordered="false" upperBound="-1" eType="#//Response_Time_Result" containment="true">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="List of global response times each representing the worst-case response time relative to a particular input event."/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="Best_Global_Response_Time"
+        ordered="false" upperBound="-1" eType="#//Response_Time_Result" containment="true">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="List of global response times each representing the best-case response time relative to a particular input event."/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="Worst_Relative_Global_Response_Time"
+        ordered="false" upperBound="-1" eType="#//Response_Time_Result" containment="true">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="List of global response times each representing the worst-case response time relative to a particular input event."/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="Best_Relative_Global_Response_Time"
+        ordered="false" upperBound="-1" eType="#//Response_Time_Result" containment="true">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="List of global response times each representing the best-case response time relative to a particular input event."/>
+      </eAnnotations>
+    </eStructuralFeatures>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Extended_Timing_Result" eSuperTypes="#//Timing_Result">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="Avg_Local_Response_Time"
+        ordered="false" eType="ecore:EDataType http://mast.unican.es/ecoremast/Mast2#//Time">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="Average local response time, measured as the average difference between the activation and completion times of the activity that generated the event with this result."/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="Avg_Blocking_Time" ordered="false"
+        eType="ecore:EDataType http://mast.unican.es/ecoremast/Mast2#//Time">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="Average-case delay caused by the use of shared resources. It represents the average blocking time for the segment of activities preceding the referenced event. A segment of activities is a set of consecutive activities (consecutive in the transaction graph) that are run by the same scheduling server."/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="Max_Preemption_Time" ordered="false"
+        eType="ecore:EDataType http://mast.unican.es/ecoremast/Mast2#//Time">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="Maximum time spent by the activity preceding the event in the scheduler ready queue, while having been activated by a specific event instance. This is equivalent to the time the activity is being preempted by higher priority activities."/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="Suspension_Time" ordered="false"
+        eType="ecore:EDataType http://mast.unican.es/ecoremast/Mast2#//Time">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="Maximum time spent in the activity input queue by the event that triggered the activity preceding the event to which this result is attached. This time is larger than zero only if the triggering event arrives while the activity is still busy processing a previous event."/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="Avg_Global_Response_Time"
+        ordered="false" upperBound="-1" eType="#//Response_Time_Result" containment="true">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="List of global response times each representing the average-case response time relative to a particular input event."/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="Avg_Relative_Global_Response_Time"
+        ordered="false" upperBound="-1" eType="#//Response_Time_Result" containment="true">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="List of global response times each representing the average-case response time relative to a particular input event."/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="Throughput" ordered="false"
+        upperBound="-1" eType="#//Throughput_Result" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="Local_Miss_Ratio" ordered="false"
+        upperBound="-1" eType="#//Miss_Ratio_Result" containment="true">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="List of local miss ratios, each representing the ratio of events that have missed a specific soft local deadline."/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="Global_Miss_Ratio" ordered="false"
+        upperBound="-1" eType="#//Global_Miss_Ratio_Result" containment="true">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="List of global miss ratios, each representing the ratio of events generated at a specific input event channel, that have missed a specific soft global deadline."/>
+      </eAnnotations>
+    </eStructuralFeatures>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Output_Jitter_Result">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="Referenced_Event" ordered="false"
+        lowerBound="1" eType="ecore:EDataType http://mast.unican.es/ecoremast/Mast2#//Identifier">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="Name of referenced input event, used for calculating the response time."/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="Value" ordered="false"
+        lowerBound="1" eType="ecore:EDataType http://mast.unican.es/ecoremast/Mast2#//Time">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="Global response time, calculated as the difference between the arrival of the input referenced event and the generation of the event to which the result is attached, and adding the input jitter."/>
+      </eAnnotations>
+    </eStructuralFeatures>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Response_Time_Result">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="Referenced_Event" ordered="false"
+        lowerBound="1" eType="ecore:EDataType http://mast.unican.es/ecoremast/Mast2#//Identifier">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="Name of referenced input event, used for calculating the response time."/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="Value" ordered="false"
+        lowerBound="1" eType="ecore:EDataType http://mast.unican.es/ecoremast/Mast2#//Time">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="Global response time, calculated as the difference between the arrival of the input referenced event and the generation of the event to which the result is attached, and adding the input jitter."/>
+      </eAnnotations>
+    </eStructuralFeatures>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Throughput_Result">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="Referenced_Event" ordered="false"
+        lowerBound="1" eType="ecore:EDataType http://mast.unican.es/ecoremast/Mast2#//Identifier"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="Value" ordered="false"
+        lowerBound="1" eType="ecore:EDataType http://mast.unican.es/ecoremast/Mast2#//Time"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Miss_Ratio_Result">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="Deadline" ordered="false"
+        lowerBound="1" eType="ecore:EDataType http://mast.unican.es/ecoremast/Mast2#//Time"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="Ratio" ordered="false"
+        lowerBound="1" eType="ecore:EDataType http://mast.unican.es/ecoremast/Mast2#//Percentage"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Global_Miss_Ratio_Result" eSuperTypes="#//Miss_Ratio_Result">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="Referenced_Event" ordered="false"
+        lowerBound="1" eType="ecore:EDataType http://mast.unican.es/ecoremast/Mast2#//Identifier"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="Miss_Ratio" lowerBound="1"
+        upperBound="-1" eType="#//Miss_Ratio_Result" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Synchronization_Params_Result" abstract="true"/>
+  <eClassifiers xsi:type="ecore:EClass" name="Virtual_Resource_Params_Result" abstract="true"/>
+  <eClassifiers xsi:type="ecore:EClass" name="Scheduling_Params_Result" abstract="true"/>
+  <eClassifiers xsi:type="ecore:EClass" name="Virtual_Comm_Channel_Params_Result"
+      abstract="true"/>
+  <eClassifiers xsi:type="ecore:EClass" name="Timetable_Driven_Result" abstract="true"/>
+  <eClassifiers xsi:type="ecore:EClass" name="Interrupt_Based_Params_Result" abstract="true"
+      eSuperTypes="#//Scheduling_Params_Result"/>
+  <eClassifiers xsi:type="ecore:EClass" name="EDF_Based_Params_Result" abstract="true"
+      eSuperTypes="#//Scheduling_Params_Result"/>
+  <eClassifiers xsi:type="ecore:EClass" name="Priority_Based_Params_Result" abstract="true"
+      eSuperTypes="#//Scheduling_Params_Result">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="Priority" lowerBound="1"
+        eType="ecore:EDataType http://mast.unican.es/ecoremast/Mast2#//Priority"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="Preassigned" lowerBound="1"
+        eType="ecore:EDataType http://mast.unican.es/ecoremast/Mast2#//Assertion"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Resource_Reservation_Params_Result"
+      abstract="true" eSuperTypes="#//Scheduling_Params_Result"/>
+  <eClassifiers xsi:type="ecore:EClass" name="Timetable_Driven_Params_Result" abstract="true"
+      eSuperTypes="#//Scheduling_Params_Result"/>
+  <eClassifiers xsi:type="ecore:EClass" name="AFDX_Virtual_Link_Result" abstract="true"
+      eSuperTypes="#//Scheduling_Params_Result"/>
+  <eClassifiers xsi:type="ecore:EClass" name="Interrupt_FP_Params_Result" eSuperTypes="#//Interrupt_Based_Params_Result">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="Priority" lowerBound="1"
+        eType="ecore:EDataType http://mast.unican.es/ecoremast/Mast2#//Interrupt_Priority"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Non_Preemptible_FP_Params_Result" eSuperTypes="#//Priority_Based_Params_Result"/>
+  <eClassifiers xsi:type="ecore:EClass" name="Fixed_Priority_Params_Result" eSuperTypes="#//Non_Preemptible_FP_Params_Result"/>
+  <eClassifiers xsi:type="ecore:EClass" name="Polling_Params_Result" eSuperTypes="#//Priority_Based_Params_Result">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="Polling_Period" lowerBound="1"
+        eType="ecore:EDataType http://mast.unican.es/ecoremast/Mast2#//Time"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="Polling_Worst_Overhead"
+        lowerBound="1" eType="ecore:EDataType http://mast.unican.es/ecoremast/Mast2#//Normalized_Execution_Time"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="Polling_Avg_Overhead" lowerBound="1"
+        eType="ecore:EDataType http://mast.unican.es/ecoremast/Mast2#//Normalized_Execution_Time"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="Polling_Best_Overhead"
+        lowerBound="1" eType="ecore:EDataType http://mast.unican.es/ecoremast/Mast2#//Normalized_Execution_Time"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Periodic_Server_Params_Result" eSuperTypes="#//Priority_Based_Params_Result"/>
+  <eClassifiers xsi:type="ecore:EClass" name="Sporadic_Server_Params_Result" eSuperTypes="#//Periodic_Server_Params_Result"/>
+  <eClassifiers xsi:type="ecore:EClass" name="Periodic_Server_Comm_Params_Result"
+      eSuperTypes="#//Priority_Based_Params_Result"/>
+  <eClassifiers xsi:type="ecore:EClass" name="Sporadic_Server_Comm_Params_Result"
+      eSuperTypes="#//Periodic_Server_Comm_Params_Result"/>
+  <eClassifiers xsi:type="ecore:EClass" name="EDF_Params_Result" eSuperTypes="#//EDF_Based_Params_Result"/>
+  <eClassifiers xsi:type="ecore:EClass" name="Partition_Params_Result" eSuperTypes="#//Timetable_Driven_Params_Result"/>
+  <eClassifiers xsi:type="ecore:EClass" name="SRP_Params" eSuperTypes="#//Synchronization_Params_Result"/>
+</ecore:EPackage>

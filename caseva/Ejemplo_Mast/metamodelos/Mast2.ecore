@@ -1,0 +1,2056 @@
+<?xml version="1.0" encoding="ASCII"?>
+<ecore:EPackage xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="mast2" nsURI="http://mast.unican.es/ecoremast/Mast2" nsPrefix="mast2">
+  <eClassifiers xsi:type="ecore:EDataType" name="Absolute_Time" instanceClassName="double">
+    <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+      <details key="documentation" value="Floating point number that represents an absolute time measured from and arbitrary time origin, in unspecified time units (the same units used in Time)."/>
+    </eAnnotations>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EDataType" name="Assertion" instanceClassName="boolean">
+    <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EDataType" name="Bit_Count" instanceClassName="int">
+    <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+      <details key="documentation" value="Long non negative integer that represents the size of a message in bits of information. It is converted to normalized execution time (i.e., transmission time) by dividing it by the throughput, measured in bits per time unit."/>
+    </eAnnotations>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EDataType" name="Date_Time" instanceClassName="java.lang.String">
+    <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+      <details key="documentation" value="String representing a date and time (hours, minutes and seconds) in the extended ISO 8601 format with no time zone YYYY-MM-DDThh:mm:ss (e.g., 1997-07-16T19:20:30)."/>
+    </eAnnotations>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EDataType" name="Extended_Percentage" instanceClassName="float">
+    <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+      <details key="documentation" value="A floating point number representing a percentage, and followed by a '%' character. In some cases (slacks) the notation '>=num%' may be used to indicate that the actual result is greater than the specified number. This case is usually reserved to analysis results that are unbounded or too large to be calculated by practical means."/>
+    </eAnnotations>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EDataType" name="Float" instanceClassName="double">
+    <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+      <details key="documentation" value="It represents any floating point number with the 64 bit IEEE representation."/>
+    </eAnnotations>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EDataType" name="Identifier" instanceClassName="java.lang.String">
+    <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+      <details key="documentation" value="String of characters following these rules. Identifiers or names have similar rules as the Ada composite identifiers: they begin with a letter, followed by letters, digits, underscores ('_') or periods ('.') They can be expressed with or without quotes. A quoted name can be the same as one of the reserved words in MAST, which are the names of the non-abstract MAST model elements."/>
+    </eAnnotations>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EDataType" name="Interrupt_Priority" instanceClassName="int">
+    <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+      <details key="documentation" value="Natural integer of model-defined range that must be within [0..2^15-1], defining the scheduling priority of interrupt service routines."/>
+    </eAnnotations>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EDataType" name="Natural" instanceClassName="int">
+    <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+      <details key="documentation" value="Integer number that is greater than or equal to zero."/>
+    </eAnnotations>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EDataType" name="Normalized_Execution_Time" instanceClassName="double">
+    <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+      <details key="documentation" value="Floating point number that represents the amount of processing resource capacity that is required for the execution of an operation. It is expressed as the execution time of an operation, when it is executed by a normalized processing resource of speed factor equal to one. The real execution time is obtained by dividing the normalized execution time by the processing resource's speed factor."/>
+    </eAnnotations>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EDataType" name="Pathname" instanceClassName="java.lang.String">
+    <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+      <details key="documentation" value="String representing a pathname or the URL of a file."/>
+    </eAnnotations>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EDataType" name="Percentage" instanceClassName="float">
+    <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+      <details key="documentation" value="A floating point number representing a percentage, and followed by a '%' character. In some cases (slacks) the notation '>=num%' may be used to indicate that the actual result is greater than the specified number. This case is usually reserved to analysis results that are unbounded or too large to be calculated by practical means."/>
+    </eAnnotations>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EDataType" name="Positive" instanceClassName="int">
+    <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+      <details key="documentation" value="Integer positive number (excluding zero)."/>
+    </eAnnotations>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EDataType" name="Preemption_Level" instanceClassName="int">
+    <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+      <details key="documentation" value="Natural integer in the range [0..2^15-1], defining the preemption level of schedulable resources (threads) and mutual exclusion resources, used in the SRP protocol for mutually exclusive access to shared resources."/>
+    </eAnnotations>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EDataType" name="Priority" instanceClassName="int">
+    <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+      <details key="documentation" value="Natural integer of model-defined range that must be within [0..2^15-1], defining the scheduling priority of schedulable resources."/>
+    </eAnnotations>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EDataType" name="Text" instanceClassName="java.lang.String">
+    <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+      <details key="documentation" value="String of arbitrary characters, excluding the double quote character, and delimited within double quotes."/>
+    </eAnnotations>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EDataType" name="Throughput" instanceClassName="int">
+    <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+      <details key="documentation" value="Floating point number that represents the transmission bandwidth of a communication network in bits per time unit in a network with speed factor one."/>
+    </eAnnotations>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EDataType" name="Time" instanceClassName="double">
+    <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+      <details key="documentation" value="Floating point number that represents a time interval in unspecified time units."/>
+    </eAnnotations>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EEnum" name="Delivery_Policy_Type">
+    <eLiterals name="SCAN"/>
+    <eLiterals name="RANDOM" value="1"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EEnum" name="Distribution_Type">
+    <eLiterals name="UNIFORM"/>
+    <eLiterals name="POISSON" value="1"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EEnum" name="Overhead_Type">
+    <eLiterals name="STRICT"/>
+    <eLiterals name="POSIX" value="1"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EEnum" name="Queueing_Policy_Type">
+    <eLiterals name="FIFO"/>
+    <eLiterals name="PRIORITY" value="1"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EEnum" name="Request_Policy_Type">
+    <eLiterals name="SCAN"/>
+    <eLiterals name="RANDOM" value="1"/>
+    <eLiterals name="FIFO" value="2"/>
+    <eLiterals name="LIFO" value="3"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EEnum" name="Transmision_Type">
+    <eLiterals name="SIMPLEX"/>
+    <eLiterals name="HALF_DUPLEX" value="1"/>
+    <eLiterals name="FULL_DUPLEX" value="2"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Mast_Container" abstract="true">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="Element_List" ordered="false"
+        lowerBound="1" upperBound="-1" eType="#//Model_Element" containment="true"
+        eOpposite="#//Model_Element/Container">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="List of model elements that make up the model."/>
+      </eAnnotations>
+    </eStructuralFeatures>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Model_Element" abstract="true">
+    <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+      <details key="documentation" value="It is the ancestor of the root modeling elements of the Mast_Model. "/>
+    </eAnnotations>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" lowerBound="1" eType="#//Identifier"
+        iD="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="Container" lowerBound="1"
+        eType="#//Mast_Container" eOpposite="#//Mast_Container/Element_List"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Mast_Model" eSuperTypes="#//Mast_Container">
+    <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+      <details key="documentation" value="It represents the overall MAST model of a real-time situation that a particular system may have, and that needs to be analyzed. Global information about the real-time situation and the underlying implementation is described in the Mast_Model object."/>
+    </eAnnotations>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" lowerBound="1" eType="#//Identifier"
+        iD="true"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="Date" lowerBound="1" eType="#//Date_Time"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="System_PiP_Behavior" ordered="false"
+        lowerBound="1" eType="#//Overhead_Type" defaultValueLiteral="STRICT">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="The behaviour of the underlying implementation in regard to the priority inheritance protocol. It can be STRICT, when the implementation strictly follows the original priority inheritance protocol, or POSIX, when the implementation follows the POSIX standard, which allows a more relaxed implementation that can lead to longer blocking times. The default value is STRICT. When a mutex is unlocked, the POSIX specification allows the implementation to pass the lock to the highest priority thread that is waiting to acquire the mutex. However, in the original priority inheritance protocol the mutex must be unlocked and the lock cannot be passed directly to another thread before the scheduler chooses the highest priority thread to be executed."/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="Event_Queueing_Policy"
+        ordered="false" lowerBound="1" eType="#//Queueing_Policy_Type" defaultValueLiteral="FIFO">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="This attribute represents the policy used to determine which request must be processed first when several pending event instances are queued in the input of a step. Its complete meaning is explained in the Merge element."/>
+      </eAnnotations>
+    </eStructuralFeatures>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Mast_Package" eSuperTypes="#//Mast_Container #//Model_Element"/>
+  <eClassifiers xsi:type="ecore:EClass" name="Processing_Resource" abstract="true"
+      eSuperTypes="#//Model_Element">
+    <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+      <details key="documentation" value="It models the processing capacity of a hardware component that carries out some of the modeled system activities, which are generally pieces of code to be executed, operations carried out directly by hardware, or messages to be transferred."/>
+    </eAnnotations>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="Speed_Factor" ordered="false"
+        lowerBound="1" eType="#//Float" defaultValueLiteral="1.0">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="All execution times will be expressed in normalized units. The real execution time is obtained by dividing the normalized execution time by the speed factor. The default value is 1.0."/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="Synchronization_Source"
+        ordered="false" eType="#//Clock_Synchronization_Object">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="It references the clock synchronization object used to synchronize the internal system timer of the processing resource. This affects events and timing requirements referencing the system timer, Timetable driven policies, Global EDF scheduling, etc. If this attribute is NULL the processing resource is not synchronized with others. This attribute allows defining groups of processing resources that have clock synchronization services. The default value is NULL."/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="Scheduler" lowerBound="1"
+        eType="#//Primary_Scheduler" eOpposite="#//Primary_Scheduler/Host"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Computing_Resource" abstract="true"
+      eSuperTypes="#//Processing_Resource">
+    <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+      <details key="documentation" value="It models a device capable of executing pieces of application code or operations carried out directly by hardware."/>
+    </eAnnotations>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Regular_Processor" eSuperTypes="#//Computing_Resource">
+    <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+      <details key="documentation" value="It represents a physical processor or a device; it contains attributes that describe the overheads associated with the processor hardware modules, such as interrupt services, timers, etc. A simplified interrupt model is assumed in which interrupts may be serviced at one or more priority levels through a preemptive fixed priority hardware scheduler. The time needed to switch from application code to interrupt code or back is modeled as an overhead called 'ISR_Switch' and is modeled by three normalized execution times that define the worst, average, or best case overheads."/>
+    </eAnnotations>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="Worst_ISR_Switch" ordered="false"
+        lowerBound="1" eType="#//Normalized_Execution_Time" defaultValueLiteral="0.0">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="Worst overhead. Maximum capacity of the processor used in an interrupt switch."/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="Avg_ISR_Switch" ordered="false"
+        lowerBound="1" eType="#//Normalized_Execution_Time" defaultValueLiteral="0.0">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="Average overhead. Average capacity of the processor used in an interrupt switch."/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="Best_ISR_Switch" ordered="false"
+        lowerBound="1" eType="#//Normalized_Execution_Time" defaultValueLiteral="0.0">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="Best overhead. Minimum capacity of the processor used in an interrupt switch."/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="Min_Interrupt_Priority"
+        ordered="false" lowerBound="1" eType="#//Interrupt_Priority" defaultValueLiteral="0">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="It defines the minimum valid priority value for activities executed as interrupt service routines"/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="Max_Interrupt_Priority"
+        ordered="false" lowerBound="1" eType="#//Interrupt_Priority" defaultValueLiteral="32767">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="It defines the maximum valid priority value for activities executed as interrupt service routines."/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="Timer_List" ordered="false"
+        upperBound="-1" eType="#//Timer">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="List of references to the hardware timers used. They influence the activation time of the timed activities that reference them and specify the processor overhead implicitly introduced by the scheduler or the operating system to implement its own time management services. An empty list indicates that the timers used by the processing resource have a negligible overhead and perfect resolution. The default value is an empty list."/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="System_Timer" ordered="false"
+        eType="#//Timer">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="It references the hardware timer used as the system timer for this regular processor. The system timer is used in the timetable-driven and global EDF scheduling policies and it may also influence the activation time of the timed activities that reference it. It also specifies the processor overhead implicitly introduced by the scheduler or the operating system to implement its own time management services. If not present, this indicates that an implicit system timer is used by the processor and has a negligible overhead and perfect resolution. "/>
+      </eAnnotations>
+    </eStructuralFeatures>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Clock_Synchronization_Object" eSuperTypes="#//Model_Element">
+    <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+      <details key="documentation" value="It models a clock synchronization mechanism among clocks of different processing resources. Processing resources that reference the same clock synchronization object are assumed to have a clock synchronization mechanism among them and are considered as a group of synchronized resources with a global reference for the implicit or explicit system timer. A system may contain several of these groups.  "/>
+    </eAnnotations>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="Accuracy" ordered="false"
+        lowerBound="1" eType="#//Time" defaultValueLiteral="0.0">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="Precision of the synchronization mechanism for this timer. It is the maximum time deviation of each timer synchronized with it. Its default value is 0.0."/>
+      </eAnnotations>
+    </eStructuralFeatures>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Timer" abstract="true" eSuperTypes="#//Model_Element">
+    <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+      <details key="documentation" value="It models a hardware timer and defines the overhead associated with the management of the timer and, possibly, its time resolution. Each Timer defines a time domain, although some of these domains may be synchronized. A timer is useful to represent the overheads associated to the management of hardware timers and also to model the timing effects caused by its resolution and by clock synchronization services. When a timer appears as the System_Timer attribute of a Regular_Processor it is used for the timetable-driven and global EDF policies. Timers that are not system timers may be synchronized with the system timer of its processor if Is_Locally_Synchronized is false, with the precision given in the Precision attribute."/>
+    </eAnnotations>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="Max_Overhead" ordered="false"
+        lowerBound="1" eType="#//Normalized_Execution_Time" defaultValueLiteral="0.0">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="This is the maximum overhead of the timer interrupt, which is assumed to execute at the highest interrupt priority."/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="Avg_Overhead" ordered="false"
+        lowerBound="1" eType="#//Normalized_Execution_Time" defaultValueLiteral="0.0">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="This is the average overhead of the timer interrupt, which is assumed to execute at the highest interrupt priority."/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="Min_Overhead" ordered="false"
+        lowerBound="1" eType="#//Normalized_Execution_Time" defaultValueLiteral="0.0">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="This is the minimum overhead of the timer interrupt, which is assumed to execute at the highest interrupt priority."/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="Is_Locally_Synchronized"
+        ordered="false" lowerBound="1" eType="#//Assertion" defaultValueLiteral="false">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="A 'false|false' value that determines whether or not the timer is locally synchronized with the processor's system timer. This attribute can only be set to false for non system timers."/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="Accuracy" ordered="false"
+        lowerBound="1" eType="#//Time" defaultValueLiteral="0.0">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="Precision of the local synchronization mechanism for this timer. It is the maximum time deviation with respect to the system timer. Its value is only meaningful for timers that are locally synchronized. Its default value is 0.0."/>
+      </eAnnotations>
+    </eStructuralFeatures>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Ticker" eSuperTypes="#//Timer">
+    <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+      <details key="documentation" value="It models a timer implemented as a periodic ticker, i.e., a periodic interrupt that arrives at the system. When this interrupt arrives, all those timed events referencing the ticker whose expiration time has already passed, are activated. In this model, the overhead caused by the timer interrupt is localized in a single periodic interrupt, but jitter is introduced in all the associated timed events, because the resolution is the ticker period."/>
+    </eAnnotations>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="Period" ordered="false"
+        lowerBound="1" eType="#//Time" defaultValueLiteral="1.7976931348623157E308">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="Period of the ticker interrupt."/>
+      </eAnnotations>
+    </eStructuralFeatures>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Alarm_Clock" eSuperTypes="#//Timer">
+    <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+      <details key="documentation" value="It models a timer implemented by a hardware timer interrupt that is always programmed to generate the interrupt at the time of the closest associated timed event. Consequently, each event generates its own interrupt that causes an overhead."/>
+    </eAnnotations>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Network" abstract="true" eSuperTypes="#//Processing_Resource">
+    <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+      <details key="documentation" value="It models a communication system specialized in the transmission of messages among processors or network switches."/>
+    </eAnnotations>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="Throughput" ordered="false"
+        lowerBound="1" eType="#//Throughput" defaultValueLiteral="0">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="Normalized network bandwidth in bits per time unit. The actual network throughput is affected by the Speed_Factor."/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="Driver_List" ordered="false"
+        upperBound="-1" eType="#//Driver" containment="true" eOpposite="#//Driver/Owner">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="A list of network drivers, which contain the processor overhead model associated with the transmission of messages through the network. The default is an empty list."/>
+      </eAnnotations>
+    </eStructuralFeatures>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Packet_Based_Network" eSuperTypes="#//Network">
+    <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+      <details key="documentation" value="It models a network that uses some kind of real time protocol based on non-preemptible packets for sending messages. There are networks that support priorities in their standard protocols (i.e., the CAN bus), and other networks that need an additional protocol that works on top of the standard ones (i.e., serial lines, ethernet)."/>
+    </eAnnotations>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="Transmission_Kind" ordered="false"
+        lowerBound="1" eType="#//Transmision_Type" defaultValueLiteral="HALF_DUPLEX">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="It describes the transmission mode of the network. "/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="Max_Blocking" ordered="false"
+        lowerBound="1" eType="#//Normalized_Execution_Time" defaultValueLiteral="0.0">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="The maximum blocking that may be experienced before a high priority message can be transmitted, caused by the non preemptability of message packets, including both the application message and the protocol information sent with it. It usually has a value equal to the maximum packet transmission time plus the transmission time of the protocol information. Its default value is zero, indicating a negligible network blocking."/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="Max_Packet_Size" ordered="false"
+        lowerBound="1" eType="#//Bit_Count" defaultValueLiteral="2147483647">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="It describes the maximum amount of data included in a packet, excluding any protocol information. The maximum size is used in the calculation of the number of packets into which a large message is split, calculated as the ceiling of the message size divided by the maximum packet size. This number is multiplied by the packet overhead time of the scheduler to calculate the network overhead."/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="Min_Packet_Size" ordered="false"
+        lowerBound="1" eType="#//Bit_Count" defaultValueLiteral="2147483647">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="It describes the minimum amount of data included in a packet, excluding any protocol information. The Minimum size is used to calculate the shortest period of the overheads associated with the transmission of each packet, and thus has a strong impact on the overhead caused by the network drivers in the processors using the network"/>
+      </eAnnotations>
+    </eStructuralFeatures>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="RTEP_Network" eSuperTypes="#//Packet_Based_Network">
+    <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+      <details key="documentation" value="It represents a network that uses the RTEP protocol. This is a token-passing protocol with prioritized messages, that uses a two-phase mechanism to send each information packet: in first place there is a priority arbitration phase in which a token is rotated through each station or processing node to determine which is the node with the highest priority message; in the second phase that node is granted permission to transmit a packet with information."/>
+    </eAnnotations>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="Number_Of_Stations" ordered="false"
+        lowerBound="1" eType="#//Positive" defaultValueLiteral="2147483647">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="The number of stations or processors connected with the RTEP network. This attribute is used to determine the token rotation time and several overhead values."/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="Token_Delay" ordered="false"
+        lowerBound="1" eType="#//Time" defaultValueLiteral="0.0">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="The configurable delay introduced during the handling of a token to slow down the token transmission time in order to bound the overhead of each of the processors connected to the RT-EP network. The default value is zero, which implies maximum overhead and minimum latency."/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="Failure_Timeout" ordered="false"
+        lowerBound="1" eType="#//Time" defaultValueLiteral="1.7976931348623157E308">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="This is the configurable timeout used to determine that there has been a packet loss due to a failure in the network. The default value is a large time, which would imply no error recovery."/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="Token_Transmission_Retries"
+        ordered="false" lowerBound="1" eType="#//Natural" defaultValueLiteral="0">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="Maximum number of retransmissions that we allow for each packet containing a protocol token."/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="Packet_Transmission_Retries"
+        ordered="false" lowerBound="1" eType="#//Natural" defaultValueLiteral="0">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="Maximum number of retransmissions that we allow for each packet with user information."/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="Arbitration_Token_Size"
+        ordered="false" lowerBound="1" eType="#//Bit_Count" defaultValueLiteral="0">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="Number of bits of the message used for priority arbitration."/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="Transmit_Token_Size" ordered="false"
+        lowerBound="1" eType="#//Bit_Count" defaultValueLiteral="0">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="Number of bits of the message used for appointing the next transmit node."/>
+      </eAnnotations>
+    </eStructuralFeatures>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="AFDX_Link" eSuperTypes="#//Network">
+    <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+      <details key="documentation" value="It represents a link between a processor and/or a switch in a network that uses the AFDX (Avionics Full Duplex Switched Ethernet) protocol, which is the protocol used in the ARINC 664 standard. The link allows full duplex communications."/>
+    </eAnnotations>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="Max_Packet_Size" ordered="false"
+        lowerBound="1" eType="#//Bit_Count" defaultValueLiteral="2147483647">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="It describes the maximum amount of user data included in a packet, excluding any protocol information. The maximum size is used in the calculation of the number of packets into which a large message is split, calculated as the ceiling of the message size divided by the maximum packet size."/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="Min_Packet_Size" ordered="false"
+        lowerBound="1" eType="#//Bit_Count" defaultValueLiteral="2147483647">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="It describes the minimum amount of user data included in a packet, excluding any protocol information. "/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="Max_HW_Tx_Latency" ordered="false"
+        lowerBound="1" eType="#//Time" defaultValueLiteral="1.7976931348623157E308">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="Maximum technological latency in transmission in the AFDX hardware."/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="Min_HW_Tx_Latency" ordered="false"
+        lowerBound="1" eType="#//Time" defaultValueLiteral="1.7976931348623157E308">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="Minimum  technological latency in transmission in the AFDX hardware."/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="Avg_HW_Tx_Latency" ordered="false"
+        lowerBound="1" eType="#//Time" defaultValueLiteral="1.7976931348623157E308">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="Average  technological latency in transmission in the AFDX hardware."/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="Max_HW_Rx_Latency" ordered="false"
+        lowerBound="1" eType="#//Time" defaultValueLiteral="1.7976931348623157E308">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="Maximum  technological latency in reception in the AFDX hardware."/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="Min_HW_Rx_Latency" ordered="false"
+        lowerBound="1" eType="#//Time" defaultValueLiteral="1.7976931348623157E308">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="Minimun technological latency in reception in the AFDX hardware."/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="Avg_HW_Rx_Latency" ordered="false"
+        lowerBound="1" eType="#//Time" defaultValueLiteral="1.7976931348623157E308">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="Average technological latency in reception in the AFDX hardware."/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="Ethernet_Overhead" ordered="false"
+        lowerBound="1" eType="#//Bit_Count" defaultValueLiteral="160">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="It is the number of overhead bytes to be added to each Ethernet frame. Its value is 160 bits (20 bytes)."/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="Protocol_Overhead" ordered="false"
+        lowerBound="1" eType="#//Bit_Count" defaultValueLiteral="376">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="It is the number of overhead bytes corresponding to the protocol used for communications. Its value is 376 bits (47 bytes) for the UDP/IP used in AFDX."/>
+      </eAnnotations>
+    </eStructuralFeatures>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Driver" abstract="true">
+    <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+      <details key="documentation" value="It represents activities executed in a processor as a consequence of the transmission or reception of a message or a message packet through a network."/>
+    </eAnnotations>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="Owner" lowerBound="1" eType="#//Network"
+        eOpposite="#//Network/Driver_List"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Packet_Driver" eSuperTypes="#//Driver">
+    <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+      <details key="documentation" value="It represents a driver that is activated at each message packet transmission or reception."/>
+    </eAnnotations>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="Message_Segmentation" ordered="false"
+        lowerBound="1" eType="#//Assertion" defaultValueLiteral="true">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="A 'false|false' value that determines whether or not the driver is capable of partitioning long messages into several packets and rebuilding the message at the other end. This attribute influences the overhead model of the driver."/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="High_Utilization_Mode"
+        ordered="false" lowerBound="1" eType="#//Assertion" defaultValueLiteral="true">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="This parameter specifies whether or not the network is used at a high transmission rate. Its value determines the overhead model that should be used for the driver. If the value is true, the system has a high network utilization and few messages are being partitioned (i.e., mostly short messages); in this case the driver overhead is modeled  as periodic send and receive operations with a period equal to the minimum packet transmission time (this is called the decoupled overhead model). If the value is false, the driver overhead is modeled as  message send and message receive operations that are attached to the transaction that causes the transmission of the message (this is called the coupled overhead model). Both models are pessimistic, but depending on the network utilization one of them produces more accurate results. The default value is true."/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="Packet_Send_Operation"
+        ordered="false" eType="#//Code_Operation">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="Reference to the operation that is executed by the packet server each time a packet is sent"/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="Packet_Receive_Operation"
+        ordered="false" eType="#//Code_Operation">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="Reference to the operation that is executed by the packet server each time a packet is received."/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="Packet_Server" ordered="false"
+        eType="#//Thread">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="The reference to the schedulable resource that is executing the part of the driver that is executed for each packet sent or received (which in turn has a reference to the scheduler (and indirectly to the processor), and to the scheduling parameters)."/>
+      </eAnnotations>
+    </eStructuralFeatures>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Character_Packet_Driver" eSuperTypes="#//Packet_Driver">
+    <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+      <details key="documentation" value="It is a specialization of a packet driver in which there is an additional overhead associated with sending each character, as happens in some serial lines."/>
+    </eAnnotations>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="Character_Transmission_Time"
+        ordered="false" lowerBound="1" eType="#//Time" defaultValueLiteral="0.0">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="Time of character transmission. It determines the period used for the overhead models of the character send and character receive operations."/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="Character_Send_Operation"
+        ordered="false" eType="#//Code_Operation">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="The reference to the operation that is executed by the character server each time a character is sent."/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="Character_Receive_Operation"
+        ordered="false" eType="#//Code_Operation">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="The reference to the operation that is executed by the character server each time a character is received"/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="Character_Server" ordered="false"
+        eType="#//Thread">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="The reference to the schedulable resource that is executing the part of the driver that is executed for each character sent or received (which in turn has a reference to the scheduler (and indirectly to the processor), and to the scheduling parameters)."/>
+      </eAnnotations>
+    </eStructuralFeatures>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="RTEP_Packet_Driver" eSuperTypes="#//Packet_Driver">
+    <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+      <details key="documentation" value="It is a specialization of a packet driver that characterizes the Real-Time Ethernet Protocol, RTEP. This is a token-passing protocol with prioritized messages, that uses a two-phase mechanism to send each information packet: in first place there is a priority arbitration phase in which a token is rotated through each station or processing node to determine which is the node with the highest priority message; in the second phase that node is granted permission to transmit a packet with information. Compared to a regular packet driver, there are additional overheads associated with the transmission and reception of the tokens, as well as with the error recovery mechanisms. In the Decoupled RTA Overhead Model, the period of the overhead transactions used to model the message send and receive operations is not the minimum packet transmission time, as with the Packet_Driver, but rather a combination of several attributes. See the RT-EP documentation for a description of the overhead model. "/>
+    </eAnnotations>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="Packet_Interrupt_Server"
+        ordered="false" eType="#//Thread">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="Reference to the schedulable resource that is executing the interrupt service routine that handles each incoming packet, independently of whether it is a packet with information or a protocol token."/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="Packet_ISR_Operation" ordered="false"
+        eType="#//Code_Operation">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="Reference to the operation executed by the packet server to send a token."/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="Token_Check_Operation"
+        ordered="false" eType="#//Code_Operation">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="Reference to the operation executed by the packet server to receive and check a token packet"/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="Token_Manage_Operation"
+        ordered="false" eType="#//Code_Operation">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="Reference to the operation executed by the packet server to send a token."/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="Packet_Discard_Operation"
+        ordered="false" eType="#//Code_Operation">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="Reference to the operation executed by the packet server when a packet is received that is addressed to another processing node."/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="Token_Retransmission_Operation"
+        ordered="false" eType="#//Code_Operation">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="Reference to the operation executed by the packet server when a lost token is retransmitted"/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="Packet_Retransmission_Operation"
+        ordered="false" eType="#//Code_Operation">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="Reference to the operation executed by the packet server when a packet with information that was lost is retransmitted."/>
+      </eAnnotations>
+    </eStructuralFeatures>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Network_Switch" abstract="true" eSuperTypes="#//Processing_Resource">
+    <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+      <details key="documentation" value="It models a communication system specialized in the transfer of messages among networks. It is capable of delivering messages arriving at an input port to one or more output ports. The delivery operations are specified through special-purpose message event handlers including a simple port to port delivery, as well as a message fork handler. The destination port or ports are implied in the message stream. MAST does not require to define the network topology, since it is implicitly defined in the transactions. The overhead of a fork operation contains a fixed latency and a variable latency that depends on the number of output ports (Fork_Latency= Fixed_Fork_Latency + (Num_Of_Output_Ports * Variable_Fork_Latency). The overhead model assumes a shared memory switch in which messages do not need to be copied, with special-purpose hardware that makes it possible to operate all ports simultaneously. Contention occurs of course when several messages need to be sent to the same output port, in which case a queue is used at the output port. "/>
+    </eAnnotations>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="Max_Fixed_Fork_Latency"
+        ordered="false" lowerBound="1" eType="#//Normalized_Execution_Time" defaultValueLiteral="0.0">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="This attribute represents the maximum value for the fixed part of the latency introduced by the switch when an input message is replicated in multiple output ports. It is the part that is independent of the number of replicas."/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="Avg_Fixed_Fork_Latency"
+        ordered="false" lowerBound="1" eType="#//Normalized_Execution_Time" defaultValueLiteral="0.0">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="This attribute represents the average value for the fixed part of the latency introduced by the switch when an input message is replicated in multiple output ports. It is the part that is independent of the number of replicas."/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="Min_Fixed_Fork_Latency"
+        ordered="false" lowerBound="1" eType="#//Normalized_Execution_Time" defaultValueLiteral="0.0">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="This attribute represents the minimum value for the fixed part of the latency introduced by the switch when an input message is replicated in multiple output ports. It is the part that is independent of the number of replicas."/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="Max_Variable_Fork_Latency"
+        ordered="false" lowerBound="1" eType="#//Normalized_Execution_Time" defaultValueLiteral="0.0">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="This attribute is used to calculate the additional part of the delay introduced by the switch when an input message is replicated in multiple output ports. It represents the maximum value of the additional delay that is introduced for each generated replica."/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="Avg_Variable_Fork_Latency"
+        ordered="false" lowerBound="1" eType="#//Normalized_Execution_Time" defaultValueLiteral="0.0">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="This attribute is used to calculate the additional part of the delay introduced by the switch when an input message is replicated in multiple output ports. It represents the average value of the additional delay that is introduced by each generated replica."/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="Min_Variable_Fork_Latency"
+        ordered="false" lowerBound="1" eType="#//Normalized_Execution_Time" defaultValueLiteral="0.0">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="This attribute is used to calculate the additional part of the delay introduced by the switch when an input message is replicated in multiple output ports. It represents the minimum value of the additional delay that is introduced by each generated replica."/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="Max_Delivery_Latency" ordered="false"
+        lowerBound="1" eType="#//Normalized_Execution_Time" defaultValueLiteral="0.0">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="Maximum Latency introduced by the switch for each port-to-port message delivery."/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="Avg_Delivery_Latency" ordered="false"
+        lowerBound="1" eType="#//Normalized_Execution_Time" defaultValueLiteral="0.0">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="Average Latency introduced by the switch for each port-to-port message delivery."/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="Min_Delivery_Latency" ordered="false"
+        lowerBound="1" eType="#//Normalized_Execution_Time" defaultValueLiteral="0.0">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="Minimum latency introduced by the switch for each port-to-port message delivery."/>
+      </eAnnotations>
+    </eStructuralFeatures>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Regular_Switch" eSuperTypes="#//Network_Switch">
+    <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+      <details key="documentation" value="Concrete and simple switch in which the output queues are assumed to work according to the policy of output network (for instance, priority-based in case of a fixed priority policy). The switch is assumed to have routing information preconfigured, so there is no need for additional network traffic originated by the switch."/>
+    </eAnnotations>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="AFDX_Switch" eSuperTypes="#//Regular_Switch">
+    <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+      <details key="documentation" value="Concrete and simple switch working according to the AFDX specification. "/>
+    </eAnnotations>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Network_Router" abstract="true" eSuperTypes="#//Network_Switch">
+    <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+      <details key="documentation" value="It models a communication system specialized in routing messages among networks. It is like a network switch but, in addition, it is able to route a message through a destination port that may be dynamically obtained. In addition to the message event handlers supported by the switches (message delivery and message fork), routers support the message branch event handler, which is capable of delivering a message to one output port chosen form of a set of possible outputs. The overhead model for the message branch event handlers is similar to the model for message fork. It contains a fixed latency and a variable latency that depends on the number of possible output ports (Message_Branch_Latency= Message_Fixed_Branch_Latency + (Num_Of_Possible_Output_Ports * Message_Variable_Branch_Latency))."/>
+    </eAnnotations>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="Max_Fixed_Branch_Latency"
+        ordered="false" lowerBound="1" eType="#//Normalized_Execution_Time" defaultValueLiteral="0.0">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="This attribute represents the maximum  value for the fixed part of the delay introduced by the router when an input message is retransmitted through an output port. It is the part that is independent of the number of possible output ports."/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="Avg_Fixed_Branch_Latency"
+        ordered="false" lowerBound="1" eType="#//Normalized_Execution_Time" defaultValueLiteral="0.0">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="This attribute represents the average  value for the fixed part of the delay introduced by the router when an input message is retransmitted through an output port. It is the part that is independent of the number of possible output ports.."/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="Min_Fixed_Branch_Latency"
+        ordered="false" lowerBound="1" eType="#//Normalized_Execution_Time" defaultValueLiteral="0.0">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="This attribute represents the minimum value for the fixed part of the delay introduced by the router when an input message is retransmitted through an output port. It is the part that is independent of the number of possible output ports.."/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="Max_Variable_Branch_Latency"
+        ordered="false" lowerBound="1" eType="#//Normalized_Execution_Time" defaultValueLiteral="0.0">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="This attribute is used to calculate the additional part of the delay introduced by the router when an input message is retransmitted through an output port.. It represents the maximum value of the additional delay that is introduced by each possible output port.  "/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="Avg_Variable_Branch_Latency"
+        ordered="false" lowerBound="1" eType="#//Normalized_Execution_Time" defaultValueLiteral="0.0">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="This attribute is used to calculate the additional part of the delay introduced by the router when an input message is retransmitted through an output port.. It represents the average value of the additional delay that is introduced by each possible output port "/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="Min_Variable_Branch_Latency"
+        ordered="false" lowerBound="1" eType="#//Normalized_Execution_Time" defaultValueLiteral="0.0">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="This attribute is used to calculate the additional part of the delay introduced by the router when an input message input message is retransmitted through an output port. It represents the minimum value of the additional delay that is introduced by each possible output port "/>
+      </eAnnotations>
+    </eStructuralFeatures>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Regular_Router" eSuperTypes="#//Network_Router">
+    <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+      <details key="documentation" value="Concrete and simple  router in which the output queues are assumed to be FIFO queues."/>
+    </eAnnotations>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Scheduler" abstract="true" eSuperTypes="#//Model_Element">
+    <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+      <details key="documentation" value="It models the operating system or network subsystem objects that implement the appropriate scheduling strategies to manage the amount of processing capacity that has been assigned to them. Its scheduling strategy is defined by means of the associated Scheduling_Policy object. Schedulers can have a hierarchical structure. A Primary Scheduler operates by offering the whole processing capacity of its associated base processor to its associated schedulable resources. A Secondary Scheduler is allowed to deliver to its schedulable resources just the processing capacity that it receives from its associated schedulable resource, scheduled in turn by some other scheduler."/>
+    </eAnnotations>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="Policy" ordered="false"
+        lowerBound="1" eType="#//Scheduling_Policy" containment="true" eOpposite="#//Scheduling_Policy/Owner">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="It represents the scheduling policy, which is the basic strategy that is implemented by the scheduler to distribute the assigned processing capacity among the schedulable resources associated to the same scheduler."/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="Schedulable_Resource_List"
+        lowerBound="1" upperBound="-1" eType="#//Schedulable_Resource" eOpposite="#//Schedulable_Resource/Scheduler"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Primary_Scheduler" eSuperTypes="#//Scheduler">
+    <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+      <details key="documentation" value="It represents the base system scheduler for its associated processing resource."/>
+    </eAnnotations>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="Host" ordered="false" lowerBound="1"
+        eType="#//Processing_Resource" eOpposite="#//Processing_Resource/Scheduler">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="It references to the processing resource that supplies the processing capacity to be scheduled."/>
+      </eAnnotations>
+    </eStructuralFeatures>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Secondary_Scheduler" eSuperTypes="#//Scheduler">
+    <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+      <details key="documentation" value="It is allowed to deliver to its schedulable resources just the processing capacity that it receives from its associated schedulable resource, scheduled in turn by some other scheduler."/>
+    </eAnnotations>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="Host" ordered="false" lowerBound="1"
+        eType="#//Schedulable_Resource">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="It references the schedulable resource that supplies the processing capacity to be scheduled."/>
+      </eAnnotations>
+    </eStructuralFeatures>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Scheduling_Policy" abstract="true">
+    <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+      <details key="documentation" value="A scheduling policy represents the basic strategy that is implemented in a scheduler to deliver the assigned processing capacity to its associated schedulable resource. Each of these resources has a Scheduling_Parameters object that describes the parameters used by the scheduler."/>
+    </eAnnotations>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="Owner" lowerBound="1" eType="#//Scheduler"
+        eOpposite="#//Scheduler/Policy"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Fixed_Priority_Policy" eSuperTypes="#//Scheduling_Policy">
+    <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+      <details key="documentation" value="It represents a fixed-priority policy. It can only be assigned to a scheduler that has a Regular_Processor as its host."/>
+    </eAnnotations>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="Max_Priority" ordered="false"
+        lowerBound="1" eType="#//Priority" defaultValueLiteral="32767">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="It defines the maximum priority that is valid for normal operations on schedulable resources scheduled with this policy."/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="Min_Priority" ordered="false"
+        lowerBound="1" eType="#//Priority" defaultValueLiteral="1">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="It defines the minimum priority that is valid for normal operations on schedulable resources scheduled with this policy"/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="Worst_Context_Switch" ordered="false"
+        lowerBound="1" eType="#//Normalized_Execution_Time" defaultValueLiteral="1.7976931348623157E308">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="Maximum overhead for a context switch between schedulable resources."/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="Avg_Context_Switch" ordered="false"
+        lowerBound="1" eType="#//Normalized_Execution_Time" defaultValueLiteral="0.0">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="Average overhead for context switch between schedulable resources."/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="Best_Context_Switch" ordered="false"
+        lowerBound="1" eType="#//Normalized_Execution_Time" defaultValueLiteral="0.0">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="Minimum overhead for context switch between schedulable resources."/>
+      </eAnnotations>
+    </eStructuralFeatures>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="EDF_Policy" eSuperTypes="#//Scheduling_Policy">
+    <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+      <details key="documentation" value="It represents an Earliest Deadline First policy. In the EDF policy each schedulable resource is assigned a relative deadline, and is scheduled with an absolute deadline that is equal to the relative deadline plus the generation time of the event instance being executed. The generation time can be accounted for in two different ways, leading to the so called Global EDF or Local EDF variants. In Global EDF the event generation time corresponds to the generation time of the workload event that is being processed. This time is meaningful only for steps in the same processing resource where the workload event was generated, or in processing resources that have their system timers synchronized with it. However, it is not meaningful in processing resources that are not synchronized with the processing resource where the workload event was generated. For these non-synchronized resources local EDF is assumed, implying that the generation time of the event is the time at which the internal event being processed arrived in the processing resource. The EDF Policy can only be assigned to a scheduler that has a Regular_Processor as its host."/>
+    </eAnnotations>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="Worst_Context_Switch" ordered="false"
+        lowerBound="1" eType="#//Normalized_Execution_Time" defaultValueLiteral="0.0">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="Maximum overhead for context switch between schedulable resources."/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="Avg_Context_Switch" ordered="false"
+        lowerBound="1" eType="#//Normalized_Execution_Time" defaultValueLiteral="0.0">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="Average overhead for context switch between schedulable resources."/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="Best_Context_Switch" ordered="false"
+        lowerBound="1" eType="#//Normalized_Execution_Time" defaultValueLiteral="0.0">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="Minimum overhead for context switch between schedulable resources."/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="Is_Global" lowerBound="1"
+        eType="#//Assertion" defaultValueLiteral="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="FP_Packet_Based_Policy" eSuperTypes="#//Scheduling_Policy">
+    <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+      <details key="documentation" value="It represents a fixed priority policy used in a packet oriented communication network. Network packets are assumed to be non preemptible. It can onlybe assigned to a scheduler that has a Packet_Based_Network as its host."/>
+    </eAnnotations>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="Max_Priority" ordered="false"
+        lowerBound="1" eType="#//Priority" defaultValueLiteral="32767">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="It defines the maximum priority valid for messages to be sent using this policy."/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="Min_Priority" ordered="false"
+        lowerBound="1" eType="#//Priority" defaultValueLiteral="1">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="It defines the minimum priority valid for messages to be sent using this policy."/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="Packet_Overhead_Max_Size"
+        ordered="false" lowerBound="1" eType="#//Bit_Count" defaultValueLiteral="0">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="Maximum overhead associated with sending each packet, because of the protocol messages or headers that need to be sent before or after each packet. It specifies the overheads using a bit count (which is then translated to time using the throughput attribute of the network associated to the scheduler that uses this policy)."/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="Packet_Overhead_Avg_Size"
+        ordered="false" lowerBound="1" eType="#//Bit_Count" defaultValueLiteral="0">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="Average overhead associated with sending each packet, because of the protocol messages or headers that need to be sent before or after each packet. It specifies the overheads using a bit count (which is then translated to time using the throughput attribute of the network associated to the scheduler that uses this policy)."/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="Packet_Overhead_Min_Size"
+        ordered="false" lowerBound="1" eType="#//Bit_Count" defaultValueLiteral="0">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="Minimum overhead associated with sending each packet, because of the protocol messages or headers that need to be sent before or after each packet. It specifies the overheads using a bit count (which is then translated to time using the throughput attribute of the network associated to the scheduler that uses this policy)."/>
+      </eAnnotations>
+    </eStructuralFeatures>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Timetable_Driven" abstract="true" eSuperTypes="#//Scheduling_Policy">
+    <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+      <details key="documentation" value="It represents a Timetable Driven policy. A scheduler using this policy schedules its associated Schedulable Resources by assigning them to the partitions specified in the corresponding Timetable_Driven_Params.Each partition contains one or more time windows which are the only intervals during which schedulable resources assigned to the partition will be allowed to execute. The partition windows operate during an interval called the major frame (MAF). This schedule is then repeated in a cyclic manner. When more than one schedulable resources are assigned to the same partition a secondary scheduler may be needed to schedule the available time inside the partition."/>
+    </eAnnotations>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="MAF" ordered="false" lowerBound="1"
+        eType="#//Time" defaultValueLiteral="1.7976931348623157E308">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="Time interval in which the execution of the partition windows is scheduled. The schedule is repeated in a cyclic manner. All the Timetable_Driven_Policy objects that are synchronized through their associated processing resources should have the same MAF."/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="Partition_Table" ordered="false"
+        lowerBound="1" upperBound="-1" eType="#//Partition_Window" containment="true">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="List of partition windows to be scheduled in each MAF."/>
+      </eAnnotations>
+    </eStructuralFeatures>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Partition_Window">
+    <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+      <details key="documentation" value="Data required to define each execution window inside a partition in the Timetable_Driven policy."/>
+    </eAnnotations>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="Partition_Id" ordered="false"
+        lowerBound="1" eType="#//Natural">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="Natural integer that is used as identifier of the partition to which this window belongs. Multiple windows may belong to the same partition"/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="Partition_Name" ordered="false"
+        lowerBound="1" eType="#//Identifier" iD="true">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="Optional identifier that is used as the partition name, for expressiveness purposes. Each partition name must correspond to a unique partition Id. "/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="Start_Time" ordered="false"
+        lowerBound="1" eType="#//Time">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="Start time of the window inside the partition (relative to the start of the major frame (MAF) used as the origin of time for the partitions)."/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="Length" ordered="false"
+        lowerBound="1" eType="#//Time">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="Duration of the window."/>
+      </eAnnotations>
+    </eStructuralFeatures>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Timetable_Driven_Policy" eSuperTypes="#//Timetable_Driven">
+    <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+      <details key="documentation" value="It represents a concrete Timetable Driven policy for processors. It only can be assigned to a scheduler that has a Regular_Processor as host."/>
+    </eAnnotations>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="Worst_Context_Switch" ordered="false"
+        lowerBound="1" eType="#//Normalized_Execution_Time" defaultValueLiteral="0.0">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="Worst overhead for a context switch between schedulable resources."/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="Avg_Context_Switch" ordered="false"
+        lowerBound="1" eType="#//Normalized_Execution_Time" defaultValueLiteral="0.0">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="Average overhead for a context switch between schedulable resources."/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="Best_Context_Switch" ordered="false"
+        lowerBound="1" eType="#//Normalized_Execution_Time" defaultValueLiteral="0.0">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="Minimum overhead for a context switch between schedulable resources."/>
+      </eAnnotations>
+    </eStructuralFeatures>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Timetable_Driven_Packet_Based_Policy"
+      eSuperTypes="#//Timetable_Driven">
+    <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+      <details key="documentation" value="It represents a Timetable Driven policy assigned to a scheduler that has a Packet_Based_Network as its host."/>
+    </eAnnotations>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="AFDX_Policy" eSuperTypes="#//Scheduling_Policy">
+    <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+      <details key="documentation" value="It represents the scheduling policy used in an AFDX network in which messages are scheduled through virtual links when they are originated at an end-system (a processor). Messages are scheduled in FIFO order when they are originated at an AFDX switch.  The AFDX policy may only be assigned to a scheduler that has an AFDX_Link as its host."/>
+    </eAnnotations>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Schedulable_Resource" abstract="true"
+      eSuperTypes="#//Model_Element">
+    <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+      <details key="documentation" value="It models a schedulable entity in a processing resource. It represents a unit of concurrent execution in a processor (task, single-threaded process, thread, interrupt service routine ...) or network (communication channel, communication session ...)."/>
+    </eAnnotations>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="Scheduling_Parameters"
+        lowerBound="1" eType="#//Scheduling_Parameters" containment="true" eOpposite="#//Scheduling_Parameters/Owner"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="Scheduler" ordered="false"
+        lowerBound="1" eType="#//Scheduler" eOpposite="#//Scheduler/Schedulable_Resource_List">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="Reference to the scheduler that serves it. It can be null only in the case of a Virtual_Schedulable_Resource."/>
+      </eAnnotations>
+    </eStructuralFeatures>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Thread" eSuperTypes="#//Schedulable_Resource">
+    <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+      <details key="documentation" value="It is a specialized Schedulable_Resource for the execution of code in a Computing_Resource. It represents a conceptual flow of execution that is implemented as a thread, or a task, or a single-threaded process, or even an interrupt service routine."/>
+    </eAnnotations>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="Synchronization_Parameters"
+        eType="#//Synchronization_Parameters" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Communication_Channel" eSuperTypes="#//Schedulable_Resource">
+    <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+      <details key="documentation" value="It is a specialized Schedulable_Resource for message transmission in a network. "/>
+    </eAnnotations>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Virtual_Schedulable_Resource" eSuperTypes="#//Thread">
+    <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+      <details key="documentation" value="It is a specialized Schedulable_Resource that is used to schedule the execution of activities independently of the processing resource in which they are physically executed and the workload of that processing resource. It plays a double role with two viewpoints. When seen from the application viewpoint, the virtual schedulable resource respresents a portion of a schedulable resource with guaranteed bandwidth and responsiveness. When seen from the viewpoint of the processing resource it represents a concrete workload that has to be scheduled.   - From the point of view of the applications, the virtual schedulable resource represents a resource reservation contract that is referenced through the Resource_Reservation_Params association. The reservation is independent of the underlying implementation of the virtual resource, which is captured in the referenced scheduler (Scheduler association) and the scheduling parameters assigned (Scheduling_Parameters association); these do not affect the reservation guaranteed to the application, except that they are used to know the Speed_Factor of the underlying Processing_Resource and the mutual exclusion operations that may influence the scheduling due to being executed on it.   - From the point of view of the execution platform, the virtual schedulable resource represents a concrete workload with the timing requirements that are defined by the resource reservation contract, which must be scheduled in an actual scheduler (Scheduler association) with the actual scheduling parameters characterized by the Scheduling_Parameters association.  This double viewpoint of the virtual schedulable resource makes it possible to make two kinds of analysis: on the one hand, it is possible to analyze an application running on top of a virtual resource independently of the rest of the system. On the second hand, it is possible to analyze the schedulability of a set of virtual schedulable resources running in a particular physical platform, independently of the actual applications that will run on top of them. This kind of double analysis makes it possible to independently develop application components that run in virtual resources, and, later, analyze the feasibility of a particular composition of these application components, without the need to know about their internal details.  "/>
+    </eAnnotations>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Virtual_Communication_Channel" eSuperTypes="#//Communication_Channel">
+    <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+      <details key="documentation" value="It is a specialized Communication_Channel that is used to schedule the submission of a set of messages independently of the physical network through which they are sent and the traffic that it supports. It plays a double role: - From the point of view of the applications it represents the scheduling of the messages in the resource reservation contract referenced through the Resource_Reservation_Params association. The reservation is independent of the underlying implementation of the virtual resource, which is captured in the referenced scheduler (Scheduler association) and the scheduling parameters assigned (Scheduling_Parameters association); these do not affect the reservation guaranteed to the application, except that they are used to know the Speed_Factor of the underlying Processing_Resource. - From the point of view of the execution platform, it represents the scheduling of the messages with the timing requirements defined in the resource reservation contract, which must be scheduled by the real scheduler (referenced through the Scheduler association) and with the scheduling parameters referenced through the Scheduling_Parameters association.   "/>
+    </eAnnotations>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Scheduling_Parameters" abstract="true">
+    <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+      <details key="documentation" value="This class represents the parameters that are attached to a schedulable resource. They are used by its scheduler to make its scheduling decisions when the schedulable resource is competing with other ones. Some scheduling policies allow several compatible scheduling behaviours to coexist in the system. For example, the fixed priority scheduling policy allows both preemptive and non preemptive activities. These different scheduling behaviours are determined by the scheduling parameters type and are also called the per-server policy parameters. There are several classes of scheduling parameters. There are some restrictions on the compatibility between scheduling parameters and the scheduling policy of the associated scheduler. "/>
+    </eAnnotations>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="Owner" lowerBound="1" eType="#//Schedulable_Resource"
+        eOpposite="#//Schedulable_Resource/Scheduling_Parameters"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Interrupt_Based_Params" abstract="true"
+      eSuperTypes="#//Scheduling_Parameters">
+    <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+      <details key="documentation" value="It represents an interrupt service routine. The interrupt priorities are always pre-assigned.  It is applicable to any application scheduler, because interrupts are handled directly by the Computing_Resource."/>
+    </eAnnotations>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Interrupt_FP_Params" eSuperTypes="#//Interrupt_Based_Params">
+    <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+      <details key="documentation" value="It represents the parameters of an interrupt service routine. This kind of activity can not be preempted by application activities, but can be preempted by interrupt activities with higher priority."/>
+    </eAnnotations>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="Priority" ordered="false"
+        lowerBound="1" eType="#//Interrupt_Priority" defaultValueLiteral="1">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="A positive number that represents the interrupt priority. It must be within the valid ranges for the associated computing resource. The interrupt priority is always preassigned (i.e., it is not computed by the priority assignment tools)"/>
+      </eAnnotations>
+    </eStructuralFeatures>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Priority_Based_Params" abstract="true"
+      eSuperTypes="#//Scheduling_Parameters">
+    <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+      <details key="documentation" value="This kind of scheduling parameters is only applicable to schedulers with fixed priority policy."/>
+    </eAnnotations>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="Priority" ordered="false"
+        lowerBound="1" eType="#//Priority" defaultValueLiteral="1">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="A positive number that represents the scheduling priority. It must be within the valid ranges for the associated scheduler"/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="Preassigned" ordered="false"
+        lowerBound="1" eType="#//Assertion" defaultValueLiteral="false">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="If this parameter is set to the value 'false', the priority may be assigned by one of the priority assignment tools. Otherwise, the priority is fixed and cannot be changed by those tools."/>
+      </eAnnotations>
+    </eStructuralFeatures>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Fixed_Priority_Params" eSuperTypes="#//Priority_Based_Params">
+    <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+      <details key="documentation" value="Activities scheduled with these parameters are scheduled under preemptive fixed priorities."/>
+    </eAnnotations>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Non_Preemptible_FP_Params" eSuperTypes="#//Priority_Based_Params">
+    <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+      <details key="documentation" value="Activities scheduled with these parameters are scheduled under non preemptive fixed priorities."/>
+    </eAnnotations>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Polling_Params" eSuperTypes="#//Priority_Based_Params">
+    <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+      <details key="documentation" value="Activities scheduled with these parameters use a scheduling mechanism by which there is a periodic fixed priority task that polls for the arrival of its input event. Thus, execution of the event may be delayed until the next period. The polling action has an overhead even if the event has not arrived."/>
+    </eAnnotations>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="Polling_Period" ordered="false"
+        lowerBound="1" eType="#//Time" defaultValueLiteral="0.0">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="Period of the polling task."/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="Polling_Worst_Overhead"
+        ordered="false" lowerBound="1" eType="#//Normalized_Execution_Time" defaultValueLiteral="0.0">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="Maximum overhead of the polling task."/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="Polling_Avg_Overhead" ordered="false"
+        lowerBound="1" eType="#//Normalized_Execution_Time" defaultValueLiteral="0.0">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="Average overhead of the polling task."/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="Polling_Best_Overhead"
+        ordered="false" lowerBound="1" eType="#//Normalized_Execution_Time" defaultValueLiteral="0.0">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="Minimum overhead of the polling task."/>
+      </eAnnotations>
+    </eStructuralFeatures>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Periodic_Server_Params" eSuperTypes="#//Priority_Based_Params">
+    <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+      <details key="documentation" value="Activities with these parameters are scheduled under the periodic server scheduling algorithm. Following this algorithm, for each time interval equal to the Replenishment_Period, the task can be scheduled only during a time equal to Initial_Capacity. The capacity is available at the beginning of the replenishment period and is not preserved if the activity is not ready of terminates. The available capacity is consumed according to the preemptive fixed priority scheduling rules."/>
+    </eAnnotations>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="Replenishment_Period" ordered="false"
+        lowerBound="1" eType="#//Time" defaultValueLiteral="0.0">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="It is the period after which the capacity consumed is replenished."/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="Initial_Capacity" ordered="false"
+        lowerBound="1" eType="#//Time" defaultValueLiteral="0.0">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="It is the initial value of the execution capacity. Its default value is zero."/>
+      </eAnnotations>
+    </eStructuralFeatures>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Sporadic_Server_Params" eSuperTypes="#//Periodic_Server_Params">
+    <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+      <details key="documentation" value="Activities with these parameters are scheduled under the sporadic server scheduling algorithm. The task is assigned an initial capacity that is preserved until it is consumed. Portions of capacity that are consumed are replenished after one replenishment period. When the task has execution capacity available it is scheduled with its normal priority. Once the capacity becomes zero the  priority is reduced to the Background_Priority, and restored back to the normal priority when more capacity becomes replenished. "/>
+    </eAnnotations>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="Background_Priority" ordered="false"
+        lowerBound="1" eType="#//Priority" defaultValueLiteral="1">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="The priority at which the task executes when there is no available execution capacity."/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="Max_Pending_Replenishments"
+        ordered="false" lowerBound="1" eType="#//Positive" defaultValueLiteral="1">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="It is the maximum number of simultaneously pending replenishment operations."/>
+      </eAnnotations>
+    </eStructuralFeatures>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Periodic_Server_Comm_Params" eSuperTypes="#//Priority_Based_Params">
+    <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+      <details key="documentation" value="Communication channels with these parameters transmit their messages under the periodic server scheduling algorithm. When sending a message, only a number of bits equal to Initial_Capacity are sent for each time interval equal to Replenishment_Period. This capacity is not preserved if there is no message ready or is the messages available get transmitted before the capacity is consumed."/>
+    </eAnnotations>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="Initial_Capacity" ordered="false"
+        lowerBound="1" eType="#//Bit_Count" defaultValueLiteral="0">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="It is the initial value of the number of bits that can be sent. "/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="Replenishment_Period" ordered="false"
+        lowerBound="1" eType="#//Time" defaultValueLiteral="0.0">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="It is the period after which the capacity spent  is replenished."/>
+      </eAnnotations>
+    </eStructuralFeatures>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Sporadic_Server_Comm_Params" eSuperTypes="#//Periodic_Server_Comm_Params">
+    <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+      <details key="documentation" value="Communication channels with these parameters transmit their messages under the sporadic server scheduling algorithm. The channel is assigned an initial capacity that is preserved until it is consumed. Portions of capacity that are consumed are replenished after one replenishment period. When the channel has execution capacity available it is scheduled with its normal priority. Once the capacity becomes zero the  priority is reduced to the Background_Priority, and restored back to the normal priority when more capacity becomes replenished."/>
+    </eAnnotations>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="Background_Priority" ordered="false"
+        lowerBound="1" eType="#//Priority" defaultValueLiteral="1">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="The priority at which the channel sends its messages when there is no available capacity."/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="Max_Pending_Replenishments"
+        ordered="false" lowerBound="1" eType="#//Positive" defaultValueLiteral="1">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="It is the maximum number of simultaneously pending replenishment operations."/>
+      </eAnnotations>
+    </eStructuralFeatures>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="EDF_Based_Params" abstract="true" eSuperTypes="#//Scheduling_Parameters">
+    <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+      <details key="documentation" value="These scheduling parameters are only applicable to schedulers with EDF policy"/>
+    </eAnnotations>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="Deadline" ordered="false"
+        lowerBound="1" eType="#//Time" defaultValueLiteral="1.7976931348623157E308">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="Relative deadline of the associated schedulable resource."/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="Preassigned" ordered="false"
+        lowerBound="1" eType="#//Assertion" defaultValueLiteral="false">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="If this parameter is set to the value 'false', the deadline may be assigned by one of the deadline assignment tools. Otherwise, the deadline is fixed and cannot be changed by those tools."/>
+      </eAnnotations>
+    </eStructuralFeatures>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="EDF_Params" eSuperTypes="#//EDF_Based_Params">
+    <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+      <details key="documentation" value="Concrete EDF scheduling parameters."/>
+    </eAnnotations>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Resource_Reservation_Params" abstract="true"
+      eSuperTypes="#//Scheduling_Parameters">
+    <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+      <details key="documentation" value="The scheduling parameters are only applicable to virtual schedulable resources (Virtual_Communication_Channel or Virtual_ Schedulable_Resource) as their Resource_Reservation_Params association."/>
+    </eAnnotations>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="Preassigned" ordered="false"
+        lowerBound="1" eType="#//Assertion" defaultValueLiteral="false">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="If this parameter is set to the value 'false', the scheduling parameters may be assigned by one of the scheduling design tools. Otherwise, the parameters are fixed and cannot be changed by those tools."/>
+      </eAnnotations>
+    </eStructuralFeatures>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Virtual_Resource_Params" abstract="true"
+      eSuperTypes="#//Resource_Reservation_Params">
+    <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+      <details key="documentation" value="Resource reservation contract for a Resource Reservation policy.  It represents a service contract that contains the information related to the application minimum resource requirements."/>
+    </eAnnotations>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Virtual_Comm_Channel_Params" abstract="true"
+      eSuperTypes="#//Resource_Reservation_Params">
+    <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+      <details key="documentation" value="Reservation of a communication channel  contract for a network with  Resource Reservation policy.  It represents a service contract that contains the information related to the application minimum resource requirements."/>
+    </eAnnotations>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Virtual_Periodic_Replenishment_Params"
+      abstract="true" eSuperTypes="#//Virtual_Resource_Params">
+    <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+      <details key="documentation" value="The server executes any ready tasks until its capacity is exhausted. The server budget will be filled up a policy defined in the concrete classes, depending on a period attribute. The server guarantees that a piece of work of size less than or equal to the minimum budget and requested for a server with full capacity will be completed by the server's deadline."/>
+    </eAnnotations>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="Budget" ordered="false"
+        lowerBound="1" eType="#//Normalized_Execution_Time" defaultValueLiteral="0.0">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="Minimum execution capacity per server period."/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="Period" ordered="false"
+        lowerBound="1" eType="#//Time" defaultValueLiteral="1.7976931348623157E308">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="The period of the replenishment mechanism. The virtual resource will guarantee that every period, the part of the application running on it will get, if requested at the start of the period, at least the minimum budget on the processing resource on which the associated schedulable resource is running."/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="Deadline" ordered="false"
+        lowerBound="1" eType="#//Time" defaultValueLiteral="1.7976931348623157E308">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="The server guarantees that a piece of work of size less than or equal to the minimum budget and requested for a server with full capacity will be completed by the server's deadline."/>
+      </eAnnotations>
+    </eStructuralFeatures>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Virtual_Sporadic_Server_Params" eSuperTypes="#//Virtual_Periodic_Replenishment_Params">
+    <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+      <details key="documentation" value="The sporadic server allows any of its clients to use its resource any time until its budget is exhausted. The sporadic server replenishes each portion of consumed budget one period after the associated task was ready."/>
+    </eAnnotations>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Virtual_Deferrable_Server_Params" eSuperTypes="#//Virtual_Periodic_Replenishment_Params">
+    <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+      <details key="documentation" value="The Virtual_Deferrable_Server allows any of its clients to use its resource any time within the period until its budget is exhausted. The server budget will be filled up periodically with the specified period. The budget cannot be saved for future use, which means that any unclaimed budget left from the previous replenishment is always thrown away at the next replenishment."/>
+    </eAnnotations>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Virtual_Periodic_Server_Params" eSuperTypes="#//Virtual_Periodic_Replenishment_Params">
+    <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+      <details key="documentation" value="The Periodic Server is invoked with a fixed period and executes any ready tasks until its capacity is exhausted. Note each application is assumed to contain an idle task that continuously consumes the available capacity and so on, therefore the server's capacity is fully consumed during each period. Once the server's capacity is exhausted, the server suspends execution until its capacity is replenished at the start of its next period. If a task arrives before the server's capacity has been exhausted then it will be serviced. Execution of the server may be delayed and or pre-empted by the execution of other servers at a higher priority. The server guarantees that a piece of work of size less than or equal to the minimum budget and requested for a server with full capacity at the start of the period will be completed by the server's deadline. The release jitter of the Periodic Server is assumed to be zero."/>
+    </eAnnotations>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Virtual_Periodic_Replenishment_Comm_Params"
+      abstract="true" eSuperTypes="#//Virtual_Comm_Channel_Params">
+    <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+      <details key="documentation" value="The Virtual_Periodic_ Reprenishment_Comm_Channel sends any message until its capacity is exhausted. The server budget will be filled up according to a policy that depends on the concrete class and depends on the period attribute. The Virtual communication channel guarantees that a piece of message of size less than or equal to the minimum budget and requested for a channel with full capacity at the start of the period will be completed by the channel's deadline."/>
+    </eAnnotations>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="Budget" ordered="false"
+        lowerBound="1" eType="#//Bit_Count" defaultValueLiteral="0">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="Minimum transmission capacity per server period."/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="Period" ordered="false"
+        lowerBound="1" eType="#//Time" defaultValueLiteral="1.7976931348623157E308">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="The period of the replenishment mechanism. The virtual channel will guarantee that every period, the messages being sent through it will get, if they are available at the start of the period, at least the minimum budget on the network to which the associated schedulable resource is connected."/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="Deadline" ordered="false"
+        lowerBound="1" eType="#//Time" defaultValueLiteral="1.7976931348623157E308">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="The server guarantees that a piece of message of size less than or equal to the budget and requested for a server with full capacity at the start of the period will be completed by the server's deadline."/>
+      </eAnnotations>
+    </eStructuralFeatures>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Virtual_Sporadic_Comm_Params" eSuperTypes="#//Virtual_Periodic_Replenishment_Comm_Params">
+    <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+      <details key="documentation" value="The sporadic server allows any of its clients to use its resource any time until its budget is exhausted. The sporadic server replenishes each portion of consumed budget one period after the associated task was ready. The Virtual_Sporadic_Comm_Server transmits available messages until its budget is exhausted. The sporadic channel replenishes each portion of consumed budget one period after the associated messages were available for transmission."/>
+    </eAnnotations>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Virtual_Deferrable_Comm_Params" eSuperTypes="#//Virtual_Periodic_Replenishment_Comm_Params">
+    <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+      <details key="documentation" value="The Virtual_Deferrable_Comm_Channel allows any of its clients to transmit any bits within the period, until its budget is exhausted. The channel budget will be filled up periodically with the specified period. The budget cannot be saved for future use, which means that any unclaimed budget left from the previous replenishment is always thrown away at the next replenishment."/>
+    </eAnnotations>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Virtual_Periodic_Comm_Params" eSuperTypes="#//Virtual_Periodic_Replenishment_Comm_Params">
+    <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+      <details key="documentation" value="The Virtual_Periodic_Comm_Channel sends any available message until its capacity is exhausted. Once the server's capacity is exhausted, the virtual communication channel suspends transmission until its capacity is replenished at the start of its next period. Transmission on the server may be delayed and or pre-empted by the transmission of other channels at higher priorities. The Virtual communication channel guarantees that a piece of message of size less than or equal to the minimum budget and requested for a channel with full capacity at the start of the period will be completed by the channel's deadline. The release jitter of the Virtual_Periodic_Comm_Channel is assumed to be zero."/>
+    </eAnnotations>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Virtual_Token_Bucket_Comm_Params" eSuperTypes="#//Virtual_Comm_Channel_Params">
+    <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+      <details key="documentation" value="The token bucket is a control mechanism that dictates when traffic can be transmitted, based on the presence of tokens in the bucket. The algorithm can be conceptually understood as follows:  - A token is added to the bucket every 1 / Max_Throughput seconds.  - The bucket can hold at the most budget  tokens. If a token arrives when the bucket is full, it is discarded.  - When a packet of n bits arrives, n tokens are removed from the bucket, and the packet is sent to the network.  - If fewer than n tokens are available, no tokens are removed from the bucket, and the packet is enqueued for subsequent transmission when sufficient tokens have accumulated in the bucket.  "/>
+    </eAnnotations>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="Budget" ordered="false"
+        lowerBound="1" eType="#//Bit_Count" defaultValueLiteral="0">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="The maximum number of tokens in the bucket."/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="Max_Throughput" ordered="false"
+        lowerBound="1" eType="#//Throughput" defaultValueLiteral="2147483647">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="The rate of token flow in the bucket, or the average flow of bits in the channel."/>
+      </eAnnotations>
+    </eStructuralFeatures>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Timetable_Driven_Params" abstract="true"
+      eSuperTypes="#//Scheduling_Parameters">
+    <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+      <details key="documentation" value="These scheduling parameters are only applicable to schedulers with the Timetable_Driven_Policy."/>
+    </eAnnotations>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Partition_Params" eSuperTypes="#//Timetable_Driven_Params">
+    <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+      <details key="documentation" value="Concrete scheduling parameters for a Timetable_Driven policy."/>
+    </eAnnotations>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="Partition_Id" ordered="false"
+        lowerBound="1" eType="#//Natural">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="Optimal identifier of the assigned partition."/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="Partition_Name" ordered="false"
+        lowerBound="1" eType="#//Identifier" iD="true">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="Optional identifier that is used as the partition name, for expressiveness purposes. Each partition name must correspond to a unique partition Id. "/>
+      </eAnnotations>
+    </eStructuralFeatures>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="AFDX_Virtual_Link" eSuperTypes="#//Scheduling_Parameters">
+    <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+      <details key="documentation" value="This scheduling parameters are only applicable to schedulers with AFDX Policy."/>
+    </eAnnotations>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="LMax" ordered="false" lowerBound="1"
+        eType="#//Bit_Count" defaultValueLiteral="0">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="Maximum length of the packets sent through this virtual link."/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="BAG" ordered="false" lowerBound="1"
+        eType="#//Time" defaultValueLiteral="0.0">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="Bandwidth allocation gap. This is the minimum time that must elapse between the transmission of two packets from this virtual link. It is constrained to values representing intervals in milliseconds equal to a power of 2 value in the range [1,128]."/>
+      </eAnnotations>
+    </eStructuralFeatures>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Synchronization_Parameters" abstract="true">
+    <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+      <details key="documentation" value="These parameters are attached to a schedulable resource to specify the parameters used by that resource when performing a mutually exclusive access to shared resources using a mutual exclusion resource. The synchronization parameters should be specified whenever the scheduling policy is such that the given Scheduling Parameters do not have enough information for the synchronization protocols used. For example, no synchronization parameters are needed for the priority inheritance or immediate priority ceiling protocols, because the only information they require from the server is its priority."/>
+    </eAnnotations>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="SRP_Params" eSuperTypes="#//Synchronization_Parameters">
+    <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+      <details key="documentation" value="It is associated with the synchronization protocol named Stack Resource Protocol."/>
+    </eAnnotations>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="Preemption_Level" ordered="false"
+        lowerBound="1" eType="#//Preemption_Level" defaultValueLiteral="1">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="A positive number that represents the level of preemptability of the schedulable resource in relation to the mutual exclusion resource. It must be within the valid ranges for the implementation."/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="Preassigned" ordered="false"
+        lowerBound="1" eType="#//Assertion" defaultValueLiteral="false">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="If this parameter is set to the value 'false', the value of the preemption level may be assigned by any of the specific design tools. Otherwise, it is fixed and cannot be changed by those tools."/>
+      </eAnnotations>
+    </eStructuralFeatures>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Mutual_Exclusion_Resource" abstract="true"
+      eSuperTypes="#//Model_Element">
+    <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+      <details key="documentation" value="It models a resource that is shared among different threads or tasks, and that must be used in a mutually exclusive way. Only protocols that avoid unbounded priority inversion are allowed."/>
+    </eAnnotations>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Immediate_Ceiling_Mutex" eSuperTypes="#//Mutual_Exclusion_Resource">
+    <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+      <details key="documentation" value="Uses the immediate priority ceiling resource protocol. This is equivalent to Ada's Priority Ceiling, or the POSIX priority protect protocol."/>
+    </eAnnotations>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="Ceiling" ordered="false"
+        lowerBound="1" eType="#//Priority" defaultValueLiteral="32767">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="Priority ceiling used for the resource. May be computed automatically by the tool, upon request."/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="Preassigned" ordered="false"
+        lowerBound="1" eType="#//Assertion" defaultValueLiteral="false">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="If this parameter is set to the value 'false', the priority ceiling may be assigned by the 'Calculate Ceilings' tool. Otherwise, the priority ceiling is fixed and cannot be changed by those tools."/>
+      </eAnnotations>
+    </eStructuralFeatures>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Priority_Inheritance_Mutex" eSuperTypes="#//Mutual_Exclusion_Resource">
+    <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+      <details key="documentation" value="Uses the basic priority inheritance protocol."/>
+    </eAnnotations>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="SRP_Mutex" eSuperTypes="#//Mutual_Exclusion_Resource">
+    <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+      <details key="documentation" value="Uses the Stack Resource Protocol (SRP). This is similar to the immediate ceiling protocol but works for non-priority-based policies."/>
+    </eAnnotations>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="Preemption_Level" ordered="false"
+        lowerBound="1" eType="#//Preemption_Level" defaultValueLiteral="32767">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="Level of preemptability used for the resource. May be computed automatically by the MAST tools, upon request."/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="Preassigned" ordered="false"
+        lowerBound="1" eType="#//Assertion" defaultValueLiteral="false">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="If this parameter is set to the value 'false', the preemption level may be assigned by a tool. Otherwise, the priority ceiling is fixed and cannot be changed by any tool."/>
+      </eAnnotations>
+    </eStructuralFeatures>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Operation" abstract="true" eSuperTypes="#//Model_Element">
+    <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+      <details key="documentation" value="It describes the processing capacity usage which is required for the execution of a piece of code or for the transmission of a message."/>
+    </eAnnotations>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Code_Operation" abstract="true" eSuperTypes="#//Operation">
+    <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+      <details key="documentation" value="It describes the processing capacity usage, measured in normalized execution time, which is required for the execution of a piece of code."/>
+    </eAnnotations>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="Overridden_Sched_Parameters"
+        ordered="false" eType="#//Overridden_Sched_Parameters" containment="true">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="Optional overridden scheduling parameters. Inherited from Operation. Overridden parameters in composite or enclosing operations take precedence over the respective overridden parameters of the contained operations"/>
+      </eAnnotations>
+    </eStructuralFeatures>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Simple_Operation" eSuperTypes="#//Code_Operation">
+    <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+      <details key="documentation" value="It represents a simple piece of sequential code execution."/>
+    </eAnnotations>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="Worst_Case_Execution_Time"
+        ordered="false" lowerBound="1" eType="#//Normalized_Execution_Time" defaultValueLiteral="1.7976931348623157E308">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="In normalized units, it represents the maximum execution time of the code."/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="Avg_Case_Execution_Time"
+        ordered="false" lowerBound="1" eType="#//Normalized_Execution_Time" defaultValueLiteral="1.7976931348623157E308">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="In normalized units, it represents the average execution time of the code."/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="Best_Case_Execution_Time"
+        ordered="false" lowerBound="1" eType="#//Normalized_Execution_Time" defaultValueLiteral="0.0">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="In normalized units, it represents the minimum execution time of the code."/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="Mutex_To_Lock_List" ordered="false"
+        upperBound="-1" eType="#//Mutual_Exclusion_Resource">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="List of references to the mutual exclusion resources that must be locked before executing the operation."/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="Mutex_To_Unlock_List" ordered="false"
+        upperBound="-1" eType="#//Mutual_Exclusion_Resource">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="List of references to the mutual exclusion resources that must be unlocked after executing the operation."/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="Mutex_List" ordered="false"
+        upperBound="-1" eType="#//Mutual_Exclusion_Resource">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="List of references to the mutual exclusion resources that must be locked before executing the operation, and  unlocked after executing the operation."/>
+      </eAnnotations>
+    </eStructuralFeatures>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Composite_Operation" eSuperTypes="#//Code_Operation">
+    <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+      <details key="documentation" value="It represents an operation composed of an ordered sequence of other operations, simple or composite. The execution time attribute of this class cannot be set, because it is the sum of the execution times of the comprised operations. "/>
+    </eAnnotations>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="Operation_List" ordered="false"
+        lowerBound="1" upperBound="-1" eType="#//Code_Operation">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="List of references to other operations with which is built."/>
+      </eAnnotations>
+    </eStructuralFeatures>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Enclosing_Operation" eSuperTypes="#//Composite_Operation">
+    <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+      <details key="documentation" value="It represents an operation that contains other operations as part of its execution. The execution time is not the sum of execution times of the comprised operations, because other pieces of code may be executed in addition. The enclosed operations need to be considered for the purpose of calculating the blocking times associated with their mutual exclusion resource usage."/>
+    </eAnnotations>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="Worst_Case_Execution_Time"
+        ordered="false" lowerBound="1" eType="#//Normalized_Execution_Time" defaultValueLiteral="1.7976931348623157E308">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="In normalized units, it represents the maximum execution time of the code."/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="Avg_Case_Execution_Time"
+        ordered="false" lowerBound="1" eType="#//Normalized_Execution_Time" defaultValueLiteral="1.7976931348623157E308">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="In normalized units, it represents the average execution time of the code."/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="Best_Case_Execution_Time"
+        ordered="false" lowerBound="1" eType="#//Normalized_Execution_Time" defaultValueLiteral="0.0">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="In normalized units, it represents the minimum execution time of the code."/>
+      </eAnnotations>
+    </eStructuralFeatures>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Message_Operation" abstract="true" eSuperTypes="#//Operation">
+    <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+      <details key="documentation" value="It describes the processing capacity usage which is required for the transmission of a message."/>
+    </eAnnotations>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Message" eSuperTypes="#//Message_Operation">
+    <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+      <details key="documentation" value="Represents a simple message to be transmitted through a network. "/>
+    </eAnnotations>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="Max_Message_Size" ordered="false"
+        lowerBound="1" eType="#//Bit_Count" defaultValueLiteral="2147483647">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="Maximum length of the message in Bit_Count units. The transmission time is obtained by dividing the size by the Throughput and by the Speed_Factor of the corresponding Network."/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="Avg_Message_Size" ordered="false"
+        lowerBound="1" eType="#//Bit_Count" defaultValueLiteral="2147483647">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="Average length of the message in Bit_Count units. The transmission time is obtained by dividing the size by the Throughput and by the Speed_Factor of the corresponding Network."/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="Min_Message_Size" ordered="false"
+        lowerBound="1" eType="#//Bit_Count" defaultValueLiteral="0">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="Minimum length of the message in Bit_Count units. The transmission time is obtained by dividing the size by the Throughput and by the Speed_Factor of the corresponding Network."/>
+      </eAnnotations>
+    </eStructuralFeatures>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Composite_Message" eSuperTypes="#//Message_Operation">
+    <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+      <details key="documentation" value="It represents a message composed of other messages, simple or composite,  to be transmitted through a network."/>
+    </eAnnotations>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="Message_List" ordered="false"
+        lowerBound="1" upperBound="-1" eType="#//Message_Operation">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="List of references to other messages with which is built."/>
+      </eAnnotations>
+    </eStructuralFeatures>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Overridden_Sched_Parameters" abstract="true">
+    <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+      <details key="documentation" value="It models scheduling parameters defined in the code, which should be used by the schedulable resource when executing the associated operation. Overridden parameters in composite or enclosing operations take precedence over the respective overridden parameters of the contained operations. The overridden parameters are set in the Schedulable_Resource before it locks the Mutual_Exclusion_Resources referenced  by the operation."/>
+    </eAnnotations>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Overridden_Fixed_Priority" eSuperTypes="#//Overridden_Sched_Parameters">
+    <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+      <details key="documentation" value="It represents a priority level that overrides the normal priority level at which the operation would execute. The change of priority is in effect only until the operation is completed."/>
+    </eAnnotations>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="Priority" ordered="false"
+        lowerBound="1" eType="#//Priority" defaultValueLiteral="32767">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="The overriden pririty value."/>
+      </eAnnotations>
+    </eStructuralFeatures>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Overridden_Permanent_FP" eSuperTypes="#//Overridden_Sched_Parameters">
+    <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+      <details key="documentation" value="It represents a priority level that overrides the normal priority level at which the operation would execute. The change of priority is in effect until another operation with permanent overridden priority starts, or until the end of the segment of activities (a segment is a contiguous sequence of operations executed by the same schedulable resource)."/>
+    </eAnnotations>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="Priority" ordered="false"
+        lowerBound="1" eType="#//Priority" defaultValueLiteral="32767">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="The overriden pririty value."/>
+      </eAnnotations>
+    </eStructuralFeatures>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Overridden_Deadline" eSuperTypes="#//Overridden_Sched_Parameters">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="Deadline" ordered="false"
+        lowerBound="1" eType="#//Time" defaultValueLiteral="1.7976931348623157E308"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="End_To_End_Flow" abstract="true" eSuperTypes="#//Model_Element">
+    <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+      <details key="documentation" value="It represents the set of activities and actions executed in the system in response to a workload event or an event arrival pattern. It is described as a graph with three different element types:   - A list of workload events,    - A list of internal events, with their timing requirements if any,    - A list of event handlers.  "/>
+    </eAnnotations>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="Flow_Element_List" ordered="false"
+        lowerBound="1" upperBound="-1" eType="#//Flow_Element" containment="true"
+        eOpposite="#//Flow_Element/Owner"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Regular_End_To_End_Flow" eSuperTypes="#//End_To_End_Flow">
+    <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+      <details key="documentation" value="Concrete end-to-end-flow."/>
+    </eAnnotations>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Flow_Element" abstract="true">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="Owner" lowerBound="1" eType="#//End_To_End_Flow"
+        eOpposite="#//End_To_End_Flow/Flow_Element_List"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Event" abstract="true" eSuperTypes="#//Flow_Element">
+    <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+      <details key="documentation" value="It represents an event stream containing a potentially infinite number of individual event instances. Each event instance activates an instance of a step, or influences the behaviour of the event handler to which it is directed. Events may be internal or workload events generated by a clock or by the environment. "/>
+    </eAnnotations>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" lowerBound="1" eType="#//Identifier"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Workload_Event" abstract="true" eSuperTypes="#//Event">
+    <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+      <details key="documentation" value="It represents a stream of events that are generated by the environment or by a system clock or a timer. The Timed Events have a reference to the timer."/>
+    </eAnnotations>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Timed_Event" abstract="true" eSuperTypes="#//Workload_Event">
+    <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+      <details key="documentation" value="Events generated by a timer, either implicit or explicit."/>
+    </eAnnotations>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="Timer" ordered="false"
+        eType="#//Timer"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Singular_Event" eSuperTypes="#//Timed_Event">
+    <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+      <details key="documentation" value="Represents an event that is generated only once."/>
+    </eAnnotations>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="Phase" ordered="false"
+        lowerBound="1" eType="#//Absolute_Time" defaultValueLiteral="0.0">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="It is the instant of the activation."/>
+      </eAnnotations>
+    </eStructuralFeatures>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Periodic_Event" eSuperTypes="#//Timed_Event">
+    <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+      <details key="documentation" value="It represents a stream of events that are generated periodically."/>
+    </eAnnotations>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="Period" ordered="false"
+        lowerBound="1" eType="#//Time" defaultValueLiteral="0.0">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="Event period."/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="Max_Jitter" ordered="false"
+        lowerBound="1" eType="#//Time" defaultValueLiteral="0.0">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="The event jitter is an amount of time that may be added to the activation time of each event instance, and is bounded by the maximum jitter attribute. It influences the schedulability of the system."/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="Phase" ordered="false"
+        lowerBound="1" eType="#//Absolute_Time" defaultValueLiteral="0.0">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="It is the instant of the activation, if it had no jitter. After that time, the following events are periodic (possibly with jitter)."/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="Synchronized" ordered="false"
+        eType="#//Assertion" defaultValueLiteral="false">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="It describes whether or not the event is synchronized with the partition table (in case of Timetable-driven policies) or with the virtual resource activation (in resource reservation policies). In Timetable-driven policies synchronized events are restricted to being exact multiples or submultiples of the MAF whereas in resource reservation policies they are restricted to being exact multiples or submultiples of the virtual resource period."/>
+      </eAnnotations>
+    </eStructuralFeatures>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Sporadic_Event" eSuperTypes="#//Workload_Event">
+    <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+      <details key="documentation" value="It represents a stream of aperiodic events that have a minimum interarrival time."/>
+    </eAnnotations>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="Avg_Interarrival" ordered="false"
+        lowerBound="1" eType="#//Time" defaultValueLiteral="0.0">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="Average interarrival time."/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="Min_Interarrival" ordered="false"
+        lowerBound="1" eType="#//Time" defaultValueLiteral="0.0">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="Minimum time between the generation of two events."/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="Distribution" ordered="false"
+        lowerBound="1" eType="#//Distribution_Type" defaultValueLiteral="UNIFORM">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="It represents the distribution function of the aperiodic events."/>
+      </eAnnotations>
+    </eStructuralFeatures>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Unbounded_Event" eSuperTypes="#//Workload_Event">
+    <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+      <details key="documentation" value="It represents a stream of aperiodic events for which it is not possible to establish an upper bound on the number of events that may arrive in a given interval."/>
+    </eAnnotations>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="Avg_Interarrival" ordered="false"
+        lowerBound="1" eType="#//Time" defaultValueLiteral="0.0">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="Average interarrival time."/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="Distribution" ordered="false"
+        lowerBound="1" eType="#//Distribution_Type" defaultValueLiteral="UNIFORM">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="It represents the distribution function of the aperiodic events."/>
+      </eAnnotations>
+    </eStructuralFeatures>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Bursty_Event" eSuperTypes="#//Workload_Event">
+    <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+      <details key="documentation" value="It represents a stream of aperiodic events that have an upper bound on the number of events that may arrive in a given interval. Within this interval, events may arrive with an arbitrarily low distance among them (perhaps as a burst of events)."/>
+    </eAnnotations>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="Bound_Interval" ordered="false"
+        lowerBound="1" eType="#//Time" defaultValueLiteral="0.0">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="Interval for which the amount of event arrivals is bounded."/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="Max_Arrivals" ordered="false"
+        lowerBound="1" eType="#//Positive" defaultValueLiteral="1">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="Maximum number of events that may arrive in the Bound_Interval."/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="Avg_Interarrival" ordered="false"
+        lowerBound="1" eType="#//Time" defaultValueLiteral="0.0">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="Average interarrival time."/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="Distribution" ordered="false"
+        lowerBound="1" eType="#//Distribution_Type" defaultValueLiteral="UNIFORM">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="It represents the distribution function of the aperiodic events."/>
+      </eAnnotations>
+    </eStructuralFeatures>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Internal_Event" eSuperTypes="#//Event">
+    <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+      <details key="documentation" value="They are generated by an event handler."/>
+    </eAnnotations>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="Observer_List" ordered="false"
+        upperBound="-1" eType="#//Observer" containment="true" eOpposite="#//Observer/Owner_IE">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="List of requirements associated to the event, to be observed. "/>
+      </eAnnotations>
+    </eStructuralFeatures>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Observer" abstract="true">
+    <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+      <details key="documentation" value="It represents non-functional requirements associated to an internal event. The analysis tools will observe whether the requirement is satisfied or not."/>
+    </eAnnotations>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="Owner_IE" eType="#//Internal_Event"
+        eOpposite="#//Internal_Event/Observer_List"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="Owner_CO" eType="#//Composite_Observer"
+        eOpposite="#//Composite_Observer/Observer_List"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Timing_Requirement" abstract="true"
+      eSuperTypes="#//Observer">
+    <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+      <details key="documentation" value="It represents requirements imposed on the instant of generation of the associated internal event."/>
+    </eAnnotations>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Queue_Size_Req" eSuperTypes="#//Observer">
+    <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+      <details key="documentation" value="It represents a requirement imposed on the maximum number of event instances that may be queued. It is used for internal events that activate a Step and, therefore, it represents the maximum number of pending activations of that Step."/>
+    </eAnnotations>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="Max_Events" ordered="false"
+        lowerBound="1" eType="#//Natural" defaultValueLiteral="0">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="Maximum number of queued event instances that are admitted."/>
+      </eAnnotations>
+    </eStructuralFeatures>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Deadline_Req" abstract="true" eSuperTypes="#//Timing_Requirement">
+    <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+      <details key="documentation" value="It represents a requirement imposed on the maximum time value allowed for the generation of the associated event. It is expressed as a relative time interval relative to the generation of another event."/>
+    </eAnnotations>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="Deadline" ordered="false"
+        lowerBound="1" eType="#//Time" defaultValueLiteral="0.0">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="The deadline value."/>
+      </eAnnotations>
+    </eStructuralFeatures>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Hard_Local_Deadline" eSuperTypes="#//Deadline_Req">
+    <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+      <details key="documentation" value="As local, it appears associated with the output event of a step; the deadline is relative to the arrival of the event that activated that step. As hard, it must be met in all cases, including the worst case."/>
+    </eAnnotations>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Hard_Global_Deadline" eSuperTypes="#//Deadline_Req">
+    <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+      <details key="documentation" value="As global, the deadline is relative to the workload event that activates the current execution. As hard, it must be met in all cases, including the worst case."/>
+    </eAnnotations>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="Referenced_Event" ordered="false"
+        lowerBound="1" eType="#//Workload_Event">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="Workload event used as the time reference for the deadline."/>
+      </eAnnotations>
+    </eStructuralFeatures>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Hard_Global_Relative_Deadline" eSuperTypes="#//Hard_Global_Deadline"/>
+  <eClassifiers xsi:type="ecore:EClass" name="Soft_Local_Deadline" eSuperTypes="#//Deadline_Req">
+    <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+      <details key="documentation" value="As local, it appears associated with the output event of a step; the deadline is relative to the arrival of the event that activated that step. As soft, it must be met on average."/>
+    </eAnnotations>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Soft_Global_Deadline" eSuperTypes="#//Deadline_Req">
+    <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+      <details key="documentation" value="As global, the deadline is relative to a workload event that activates the current execution. As soft, it must be met on average."/>
+    </eAnnotations>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="Referenced_Event" ordered="false"
+        lowerBound="1" eType="#//Workload_Event">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="Workload event used as the time reference for the deadline."/>
+      </eAnnotations>
+    </eStructuralFeatures>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Soft_Global_Relative_Deadline" eSuperTypes="#//Soft_Global_Deadline"/>
+  <eClassifiers xsi:type="ecore:EClass" name="Max_Output_Jitter_Req" eSuperTypes="#//Timing_Requirement">
+    <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+      <details key="documentation" value="It represents a requirement for limiting the output jitter with which the associated periodic internal event is generated. Output jitter is calculated as the difference between the worst-case response time and the best-case response time for the associated event, relative to a Referenced Event that is an attribute of this requirement."/>
+    </eAnnotations>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="Max_Output_Jitter" ordered="false"
+        lowerBound="1" eType="#//Time" defaultValueLiteral="0.0">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="Mximum jitter required."/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="Referenced_Event" ordered="false"
+        lowerBound="1" eType="#//Workload_Event">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="Workload event used as the time reference for the deadline."/>
+      </eAnnotations>
+    </eStructuralFeatures>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Max_Miss_Ratio_Req" abstract="true"
+      eSuperTypes="#//Timing_Requirement">
+    <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+      <details key="documentation" value="It represents a kind of soft deadline in which the deadline cannot be missed more often than a specified ratio."/>
+    </eAnnotations>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="Deadline" ordered="false"
+        lowerBound="1" eType="#//Time" defaultValueLiteral="0.0">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="The deadline value."/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="Ratio" ordered="false"
+        lowerBound="1" eType="#//Percentage" defaultValueLiteral="0.05">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="Percentage representing the maximum ratio of missed deadlines"/>
+      </eAnnotations>
+    </eStructuralFeatures>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Global_Max_Miss_Ratio" eSuperTypes="#//Max_Miss_Ratio_Req">
+    <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+      <details key="documentation" value="Concrete Max_Miss_Ratio_Req, in which the deadline is relative to the Referenced Event."/>
+    </eAnnotations>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="Referenced_Event" ordered="false"
+        lowerBound="1" eType="#//Workload_Event">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="Workload event that is used as the reference for the deadline."/>
+      </eAnnotations>
+    </eStructuralFeatures>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Local_Max_Miss_Ratio" eSuperTypes="#//Max_Miss_Ratio_Req">
+    <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+      <details key="documentation" value="Concrete Max_Miss_Ratio_Req, in which the deadline is relative to the activation of the step to which the timing requirement is attached."/>
+    </eAnnotations>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Composite_Observer" eSuperTypes="#//Observer">
+    <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+      <details key="documentation" value="An internal event may have several requirements imposed at the same time, which are expressed via a composite observer. It is just a list of simple observers, i.e., non-composite observers."/>
+    </eAnnotations>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="Observer_List" ordered="false"
+        lowerBound="1" upperBound="-1" eType="#//Observer" containment="true" eOpposite="#//Observer/Owner_CO">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="List of simple observers."/>
+      </eAnnotations>
+    </eStructuralFeatures>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Event_Handler" abstract="true" eSuperTypes="#//Flow_Element">
+    <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+      <details key="documentation" value="Event handlers represent actions that are activated by the arrival of one or more events, and that in turn generate one or more events at their output. There are two fundamental classes of event handlers. The Steps represent the execution of an operation by a schedulable resource, in a processing resource, and with some given scheduling parameters. The other event handlers are just a mechanism for handling events, with no runtime effects."/>
+    </eAnnotations>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Step" eSuperTypes="#//Event_Handler">
+    <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+      <details key="documentation" value="It represents the execution of an operation by a schedulable resource, in a processing resource, and with some given scheduling parameters"/>
+    </eAnnotations>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="Hold_Schedulable_Resource"
+        ordered="false" lowerBound="1" eType="#//Assertion" defaultValueLiteral="false">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="IIf this attribute is set, the thread used by the step is not released at the end of the execution of the step operation. The thread is held until the next step in which the attribute is set to &quot;false&quot; or until the end-to-end flow is finished. This attribute only has effect for schedulable resources of the Thread class. The default value is false."/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="Input_Event" ordered="false"
+        lowerBound="1" eType="#//Event">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="It references the event that activates the execution of the step"/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="Output_Event" ordered="false"
+        lowerBound="1" eType="#//Internal_Event">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="It references the internal event that is generated when the step is finished."/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="Step_Operation" ordered="false"
+        lowerBound="1" eType="#//Operation">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="It references the operation."/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="Step_Schedulable_Resource"
+        ordered="false" lowerBound="1" eType="#//Schedulable_Resource">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="Reference to the schedulable resource (which in turn contains references to the scheduling parameters and the processing resource). "/>
+      </eAnnotations>
+    </eStructuralFeatures>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Delay" eSuperTypes="#//Event_Handler">
+    <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+      <details key="documentation" value="It is an event handler that generates its output event after a time interval has elapsed from the arrival of the input even. Note that the time intervals for different event instances are independently computed, even if they overlap. The delay may be handled by a Timer or by the environment (when the Timer reference is null)."/>
+    </eAnnotations>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="Delay_Max_Interval" ordered="false"
+        lowerBound="1" eType="#//Time" defaultValueLiteral="0.0">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="Longest time interval used to generate the output event."/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="Delay_Avg_Interval" ordered="false"
+        lowerBound="1" eType="#//Time" defaultValueLiteral="0.0">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="Average time interval used to generate the output event."/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="Delay_Best_Interval" ordered="false"
+        lowerBound="1" eType="#//Time" defaultValueLiteral="0.0">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="Shortest time interval used to generate the output event."/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="Input_Event" ordered="false"
+        lowerBound="1" eType="#//Event">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="It references the event that activates the step. "/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="Output_Event" ordered="false"
+        lowerBound="1" eType="#//Internal_Event">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="It references the event that is generated when the step is finished."/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="Timer" ordered="false"
+        eType="#//Timer">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="Reference to the timer, used when the delay has an overhead that must be modeled. The default is NULL, indicating that the overhead associated to the delay operation is negligible."/>
+      </eAnnotations>
+    </eStructuralFeatures>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Offset" eSuperTypes="#//Delay">
+    <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+      <details key="documentation" value="It is similar to the Delay event handler, except that the time interval is counted relative to the arrival of some (previous) workload event. If the time interval has already passed when the input event arrives, the output event is generated immediately."/>
+    </eAnnotations>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="Referenced_Event" ordered="false"
+        lowerBound="1" eType="#//Workload_Event">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="Reference to the workload event that is used as temporal reference. "/>
+      </eAnnotations>
+    </eStructuralFeatures>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Rate_Divisor" eSuperTypes="#//Event_Handler">
+    <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+      <details key="documentation" value="It is an event handler that generates one output event when a number of input events equal to the Rate Factor have arrived."/>
+    </eAnnotations>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="Rate_Factor" ordered="false"
+        lowerBound="1" eType="#//Positive" defaultValueLiteral="1">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="Number of events that must arrive to generate an output event."/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="Input_Event" ordered="false"
+        lowerBound="1" eType="#//Event">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="It references the input event for the event handler. "/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="Output_Event" ordered="false"
+        lowerBound="1" eType="#//Internal_Event">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="references the event that is generated as output."/>
+      </eAnnotations>
+    </eStructuralFeatures>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Fork" eSuperTypes="#//Event_Handler">
+    <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+      <details key="documentation" value="It is an event handler that generates one event in each of its outputs each time an input event arrives. If the step previous to the fork handler has a 'true' value assigned to its Hold_Schedulable_Resource attribute, only one of the output paths following the fork handler can have Steps assigned to the same Schedulable_Resource as that step. The schedulable resource is unlocked when one of those Steps has a 'false' value assigned to its Hold_Schedulable_Resource attribute, or when the corresponding output path terminates."/>
+    </eAnnotations>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="Input_Event" ordered="false"
+        lowerBound="1" eType="#//Event">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="It references the input event the event handler. "/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="Output_Event_List" ordered="false"
+        lowerBound="1" upperBound="-1" eType="#//Internal_Event">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="List of references to the output events."/>
+      </eAnnotations>
+    </eStructuralFeatures>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Join" eSuperTypes="#//Event_Handler">
+    <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+      <details key="documentation" value="Itis an event handler that generates its output event when all of its input events have arrived. For worst-case analysis to be possible it is necessary that all the input events are periodic with the same periods. This usually represents no problem if the event handler is used to perform a 'join' operation after a 'fork' operation carried out with the Fork event handler. When the EDF scheduling policy is being used, the generation time of the event used to obtain the absolute deadlines is set to the most recent of the generation times of the input event instances."/>
+    </eAnnotations>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="Input_Event_List" ordered="false"
+        lowerBound="1" upperBound="-1" eType="#//Event">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="List of references to the input events. "/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="Output_Event" ordered="false"
+        lowerBound="1" eType="#//Internal_Event">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="It references the event that is generated as output."/>
+      </eAnnotations>
+    </eStructuralFeatures>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Branch" eSuperTypes="#//Event_Handler">
+    <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+      <details key="documentation" value="It is an event handler that generates one event in only one of its outputs each time an input event arrives. The output path is chosen at the time of the event generation."/>
+    </eAnnotations>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="Output_Weight_List" ordered="false"
+        lowerBound="1" upperBound="-1" eType="#//Float">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="List of weights for each output.For a RANDOM policy, if the weights are w1, w2, ..., wi, the probability of choosing a particular output j is wj/wT, where wT is the total weight, wT=w1+w2+...+wi If policy is SCAN, the weight must be integer; if the weigths for this case are w1, w2, ..., wi, the first w1 events will be directed through the first output, the next w2 events through the second output, and so on. The default value for the weight of each output is 1.."/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="Delivery_Policy" ordered="false"
+        lowerBound="1" eType="#//Delivery_Policy_Type" defaultValueLiteral="RANDOM">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="The policy used to determine the output path."/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="Input_Event" ordered="false"
+        lowerBound="1" eType="#//Event">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="Reference to the input event. "/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="Output_Event_List" ordered="false"
+        lowerBound="1" upperBound="-1" eType="#//Internal_Event">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="List of references to the output events."/>
+      </eAnnotations>
+    </eStructuralFeatures>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Merge" eSuperTypes="#//Event_Handler">
+    <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+      <details key="documentation" value="It is an event handler that generates its output event every time one of its input events arrives. When several pending event instances are queued in the Merge output, the policy assigned to the Event_Queueing_Policy attribute of the MAST_Model is used to determine which request must be processed first by the following step."/>
+    </eAnnotations>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="Input_Event_List" ordered="false"
+        lowerBound="1" upperBound="-1" eType="#//Event">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="List of references to input events. "/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="Output_Event" ordered="false"
+        lowerBound="1" eType="#//Internal_Event">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="It references the event that is generated as output."/>
+      </eAnnotations>
+    </eStructuralFeatures>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Queried_Branch" eSuperTypes="#//Event_Handler">
+    <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+      <details key="documentation" value="It is an event handler that generates one event in only one of its outputs each time an input event arrives. The output path is chosen at the time of the event consumption by one of the Steps connected to an output event."/>
+    </eAnnotations>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="Request_Policy" ordered="false"
+        lowerBound="1" eType="#//Request_Policy_Type" defaultValueLiteral="SCAN">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="The policy used to determine the output path when there are several pending requests from the connected steps. "/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="Input_Event" ordered="false"
+        lowerBound="1" eType="#//Event"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="Output_Event_List" ordered="false"
+        lowerBound="1" upperBound="-1" eType="#//Internal_Event"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Message_Event_Handler" abstract="true"
+      eSuperTypes="#//Event_Handler">
+    <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+      <details key="documentation" value="Event_Handler that handles the messages in switches and routers."/>
+    </eAnnotations>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="Switch" ordered="false"
+        lowerBound="1" eType="#//Network_Switch">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="Reference to the switch in which the transfer is executed. "/>
+      </eAnnotations>
+    </eStructuralFeatures>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Message_Fork" eSuperTypes="#//Message_Event_Handler">
+    <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+      <details key="documentation" value="An input message is transmitted through several output networks; it is a multicast operation."/>
+    </eAnnotations>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="Input_Event" ordered="false"
+        lowerBound="1" eType="#//Event"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="Output_Event_List" ordered="false"
+        lowerBound="1" upperBound="-1" eType="#//Internal_Event">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="List of references to the output events."/>
+      </eAnnotations>
+    </eStructuralFeatures>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Message_Delivery" eSuperTypes="#//Message_Event_Handler">
+    <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+      <details key="documentation" value="It represents an input message that is delivered to one output network."/>
+    </eAnnotations>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="Input_Event" ordered="false"
+        lowerBound="1" eType="#//Event"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="Output_Event" ordered="false"
+        lowerBound="1" eType="#//Internal_Event"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Message_Branch" eSuperTypes="#//Message_Event_Handler">
+    <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+      <details key="documentation" value="It is an event handler that models the management of messages in a router. It generates one event in only one of its outputs each time an input event arrives. The output path is chosen at the time of the event generation."/>
+    </eAnnotations>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="Delivery_Policy" ordered="false"
+        lowerBound="1" eType="#//Delivery_Policy_Type" defaultValueLiteral="RANDOM">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="The policy used to determine the output path."/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="Output_Weight_List" ordered="false"
+        lowerBound="1" upperBound="-1" eType="#//Float">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="List of weights for each output. For a RANDOM policy, if the weights are w1, w2, ..., wi, the probability of choosing a particular output j is wj/wT, where wT is the total weight, wT=w1+w2+...+wi. If policy is SCAN, the weight must be integer; if the weigths for this case are w1, w2, ..., wi, the first w1 events will be directed through the first output, the next w2 events through the second output, and so on. The default value for the weight of each output is 1."/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="Input_Event" ordered="false"
+        lowerBound="1" eType="#//Event">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="Reference to the input event"/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="Output_Event_List" ordered="false"
+        lowerBound="1" upperBound="-1" eType="#//Internal_Event">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="List of references to the output events. "/>
+      </eAnnotations>
+    </eStructuralFeatures>
+  </eClassifiers>
+</ecore:EPackage>

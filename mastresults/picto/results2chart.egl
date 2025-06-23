@@ -129,7 +129,7 @@
 		[%var m = M!Mast_Model.all;%]
     	var layout = {
     		title: {
-				text:'[%=m.name.get(0)%]',
+				text:'[%=m.name.concat()%]',
 				font: {
       				family: 'Courier New, monospace',
       				size: 48
